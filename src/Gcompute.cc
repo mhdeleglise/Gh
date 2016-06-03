@@ -7,7 +7,7 @@
 
 int main(int argc, char* argv[]){
 
-  int Verbose, Pplus, Log, Factors;
+  int Pplus, Log, Factors;
   const int maxdinit=500;
   const int verbose=0;
 
