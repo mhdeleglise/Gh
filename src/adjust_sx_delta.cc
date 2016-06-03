@@ -8,7 +8,7 @@
 int main(int argc, char * argv[]) {
   int verbose=0;
   int c;
-  while((c =  getopt(argc, argv, "v")) != EOF) {
+  if ((c =  getopt(argc, argv, "v")) != EOF) {
     verbose=1;
   }
   
