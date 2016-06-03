@@ -77,6 +77,10 @@ class Gdelta{
   void init(long pk,long m,int maxdinit,int imp);
   void display(int verbose=0);
   void show_pk_Gp();
+  void show_log();
+  void show_frac();
+  void show_factors();
+  long Pplus();
 };
 
 inline long GcombData::mj(int j,int k,int r) {

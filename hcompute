@@ -1,0 +1,10 @@
+#!/bin/bash
+#(skcompute $1 2>/dev/null | xargs src/testGdelta) | tail -1 | xargs src/factorG
+
+#echo cnte args $#
+#echo $@
+
+pksk=$(skcompute $2)
+
+echo $1 $pksk | xargs src/Gcompute
+

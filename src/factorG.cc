@@ -6,16 +6,7 @@
 #include<cmath>
 #include<gmp.h>
 
-void prevprime(mpz_t rop, mpz_t x) {
-  if (mpz_divisible_2exp_p (x, 1))
-    mpz_sub_ui(x, x, 1);
-
-  mpz_set(rop,x);
-  while (! mpz_probab_prime_p (rop, 100)) {
-    mpz_sub_ui(rop, rop, 2);
-  }
-}
-
+void prevprime(mpz_t rop, mpz_t x);
 
 
 int main(int argc, char* argv[]){
@@ -57,7 +48,8 @@ int main(int argc, char* argv[]){
     printf("%s\n",argv[3]);
     return 0;
     }
-    
+
+  
   int i=0;
   while (i < cnte-1) {
     while (!mpz_divisible_p(den, pk)) {

@@ -135,12 +135,12 @@ if (delta_found) {
     long maxiq=previous_prime(qhat+1);
     maxid=maxiq-pkp1mmm;
     if (maxid > maxd) {
-      cout << "maxd incrémenté de " << maxd << " a " << maxid << endl;
+      cout << "maxd incremente de " << maxd << " a " << maxid << endl;
       maxd=maxid;
       G1.init(pkp1,maxd,0);
     }
     if (imp>=2)
-      cout << "Calcul de G(pk,mm) = max(pkp1/q*G(pkp1,q-pk1mm), dernières valeurs de q \n";
+      cout << "Calcul de G(pk,mm) = max(pkp1/q*G(pkp1,q-pk1mm), dernieres valeurs de q \n";
     while (q <= qhat) {
       qlist.push_back(q);
       dlist.push_back(d);
@@ -181,10 +181,9 @@ if (delta_found) {
        erreur("The Gdelta-method has failed");
      else
        cout << "The Gdelta-method has failed but m is small" << endl;
-
    }
-}
-  return; 
+ }
+ return; 
 }
 
 
@@ -239,4 +238,82 @@ void sliceGdelta(long pk, long sk) {
     cout << "m= " << m << "  x= " << sk+m << " Gdelta= ";
     res.display();
     cout << endl;
+}
+
+void Gdelta::show_log() {
+  cout << "Log   = " << log() << endl << endl;
+}
+
+void Gdelta::show_frac() {
+  cout << "Gfrac = " << Gprov << endl << endl;;
+}
+
+long Gdelta::Pplus() {
+  mpz_class numer=Gprov.get_num();
+  long pmax=pk;
+  mpz_t q;
+  if (numer > 1) {
+    mpz_init_set_si(q,pk);
+    mpz_nextprime(q,q);
+    while (numer > 1)
+      {
+	while (! mpz_divisible_p(numer.get_mpz_t(), q)) {
+	  mpz_nextprime(q,q);
+	}
+	mpz_divexact(numer.get_mpz_t(), numer.get_mpz_t(), q);
+      }
+    pmax=mpz_get_si(q);
+  }
+  return pmax;
+}
+
+void prevprime(mpz_t rop, mpz_t x);
+
+void Gdelta::show_factors() {
+  int cnte=0;
+  mpz_class numer=Gprov.get_num();
+  long pmax=pk;
+  mpz_t q;
+  if (numer > 1) {
+    cout << "Facteurs premiers du numerateur   : ";
+    mpz_init_set_si(q,pk);
+    mpz_nextprime(q,q);
+    while (numer > 1)
+      {
+	cnte += 1;
+	while (! mpz_divisible_p(numer.get_mpz_t(), q)) {
+	  mpz_nextprime(q,q);
+	}
+	gmp_printf("%.Zd ", q);
+	mpz_divexact(numer.get_mpz_t(), numer.get_mpz_t(), q);
+      }
+    pmax=mpz_get_si(q);
+
+    cout << endl;
+    cout << "Facteurs premiers du denominateur : ";
+    int i=0;
+    mpz_class denom=Gprov.get_den();
+    mpz_init_set_si(q,pk);
+
+  if (cnte==1) {
+    gmp_printf("%.Zd\n\n",denom.get_mpz_t());
+    return;
+    }
+
+    
+    while (i < cnte-1) {
+      while (!mpz_divisible_p(denom.get_mpz_t(), q)) {
+	prevprime(q,q);
+      }
+      i+=1;
+      mpz_divexact(denom.get_mpz_t(), denom.get_mpz_t(), q);
+      if (i < cnte-1)
+	gmp_printf("%.Zd ",q);
+      else {
+	gmp_printf("%.Zd ",q);
+	gmp_printf("%.Zd\n",denom.get_mpz_t());
+      }
+    }
+  }
+  cout << endl;
 }
