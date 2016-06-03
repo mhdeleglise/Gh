@@ -286,7 +286,6 @@ void Gdelta::show_factors() {
 	gmp_printf("%.Zd ", q);
 	mpz_divexact(numer.get_mpz_t(), numer.get_mpz_t(), q);
       }
-    pmax=mpz_get_si(q);
 
     cout << endl;
     cout << "Facteurs premiers du denominateur : ";
