@@ -7,15 +7,23 @@
 
 int main(int argc, char * argv[]) {
   int verbose=0;
-  int c;
-  if ((c =  getopt(argc, argv, "v")) != EOF) {
-    verbose=1;
-  }
+  int index;
   
-  long64 x=atol(argv[optind]);
+  if (argc < 3) {
+    cout << "Usage adjust_sx_delta [-v] x delta\n";
+    exit(1);
+  }
+  if ((argv[1][0]=='-') && (argv[1][1]=='v')) {
+    verbose=1;
+    index=2;
+  }
+  else
+    index=1;
+  
+  long64 x=atol(argv[index]);
   mpz_t sum_x;
   mpz_init(sum_x);
-  mpz_set_str(sum_x, argv[optind+1],10);
+  mpz_set_str(sum_x, argv[index+1],10);
   long64 maxprime = min(sqrt((double)(2*x))+10000, 2000000000.0);
   long64 p=0;
   long64 lastp=p;
@@ -55,7 +63,7 @@ int main(int argc, char * argv[]) {
     mpz_set(delta, sum_x);
     p=pg.prev_prime();
     if (verbose)
-      gmp_printf("cnte= %d p= %ld delta= %.Zd\n",cnte,p,delta);
+      gmp_printf("cnte= %d pk= %ld delta= %.Zd\n",cnte,p,delta);
     else
       gmp_printf("%ld %.Zd\n",p,delta);
     return 0;
