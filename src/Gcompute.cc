@@ -1,6 +1,7 @@
 #include<gmpxx.h>
 #include<cmath>
 #include<vector>
+#include<unistd.h>
 #include"utilities.h"
 #include"Gfunction.h"
 
@@ -10,7 +11,7 @@ int main(int argc, char* argv[]){
   const int maxdinit=500;
   const int verbose=0;
 
-  Verbose=Pplus=Log=Factors=0;
+  Pplus=Log=Factors=0;
 
   int c;
   while((c=  getopt(argc, argv, "vlpf")) != EOF) {

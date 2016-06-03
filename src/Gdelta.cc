@@ -272,7 +272,6 @@ void prevprime(mpz_t rop, mpz_t x);
 void Gdelta::show_factors() {
   int cnte=0;
   mpz_class numer=Gprov.get_num();
-  long pmax=pk;
   mpz_t q;
   if (numer > 1) {
     cout << "Facteurs premiers du numerateur   : ";
