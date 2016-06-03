@@ -1,0 +1,2 @@
+#!/bin/bash
+(skcompute $1 2>/dev/null | xargs src/testGdelta) | tail -1 | xargs src/factorG

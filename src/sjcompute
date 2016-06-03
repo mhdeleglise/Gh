@@ -1,0 +1,27 @@
+#!/bin/bash
+
+while getopts v flag; do
+    VERBOSE=1
+done
+
+shift $(( OPTIND - 1 ));
+
+PRIMESUM=~deleglis/primesum-0.2/primesum
+n=$1
+x=$(invli2 $n 1e_12 | cut -f1 -d".")
+
+if [ $VERBOSE ]; then
+       echo "x=Li^2(-1)($n) = " $x 1>&2
+       echo "Now computing sx, the sum  of primes up to $x"
+fi
+
+sx=$(${PRIMESUM} $x)
+delta=$(sublong $n $sx)
+
+if [ $VERBOSE ]; then
+    echo sx=  $sx
+    echo delta= $n - $sx = $delta 
+fi
+
+echo $x $delta
+

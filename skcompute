@@ -1,0 +1,15 @@
+#!/bin/bash
+
+while getopts v flag; do
+    VERBOSE=1
+done
+
+shift $(( OPTIND - 1 ));
+
+if [ $VERBOSE ]; then
+    src/sjcompute -v $1 | tail -1 | xargs src/adjust_sx_delta 
+    
+else
+    src/sjcompute $1 | xargs src/adjust_sx_delta 
+fi
+
