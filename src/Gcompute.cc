@@ -14,10 +14,9 @@ int main(int argc, char* argv[]){
   Pplus=Log=Factors=0;
 
   int c;
-  while((c=  getopt(argc, argv, "vlpf")) != EOF) {
+  while((c=  getopt(argc, argv, "lpf")) != EOF) {
     switch (c) {
     case 'v':
-      Verbose=1;
       break;
     case 'p':
       Pplus=1;
