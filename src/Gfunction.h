@@ -78,6 +78,7 @@ class Gdelta{
   void display(int verbose=0);
   void show_pk_Gp();
   void show_log();
+  void showLog();
   void show_frac();
   void show_factors();
   long Pplus();
