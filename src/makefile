@@ -37,7 +37,7 @@ Gdelta.o: Gdelta.cc
 	g++ -O2 -c  -Wall Gdelta.cc
 
 GdeltaLog.o: GdeltaLog.cc
-	g++ -O2 -c  -Wall GdeltaLOg.cc
+	g++ -O2 -c  -Wall GdeltaLog.cc
 
 prev_prime.o:	prev_prime.cc
 	g++ -O2 -c  -Wall prev_prime.cc
