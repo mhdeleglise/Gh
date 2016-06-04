@@ -35,7 +35,7 @@ int main(int argc, char* argv[]){
   cout << endl;
   res.show_frac();
   if (Log)
-    res.show_log();
+    res.showLog();
   if (Pplus)
     cout << "Pplus = " << res.Pplus() << endl << endl;
   if (Factors) {
