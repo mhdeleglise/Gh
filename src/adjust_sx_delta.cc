@@ -21,12 +21,11 @@ int main(int argc, char * argv[]) {
     index=1;
   
   long64 x=atol(argv[index]);
-  mpz_t sum_x;
-  mpz_init(sum_x);
-  mpz_set_str(sum_x, argv[index+1],10);
+  mpz_t deltax;
+  mpz_init(deltax);
+  mpz_set_str(deltax, argv[index+1],10);
   long64 maxprime = min(sqrt((double)(2*x))+10000, 2000000000.0);
   long64 p=0;
-  long64 lastp=p;
   presieved_primes::init_prime_table(maxprime,2);
   prime_generator pg(100000000, x);
 
@@ -34,33 +33,33 @@ int main(int argc, char * argv[]) {
   mpz_init(sum);
   mpz_init(delta);
   long64  cnte=1;
-
-  if (mpz_cmp_si(sum_x, 0) >= 0) {
-    while (mpz_cmp(sum, sum_x) < 0) {
-      lastp=p;
-      p=pg.next_prime();
-      mpz_add_ui(sum,sum,p);
-      cnte++;
+  long pj=pg.prev_prime(x);
+  long pj1=pg.next_prime(x);
+  //cout << "pj= " << pj << "  x= " << x << "    pj1= " << pj1 << endl;
+  //gmp_printf("x= %ld   deltax= %.Zd\n",x,deltax);
+  if (mpz_cmp_si(deltax, 0) >= 0) {
+    while (mpz_cmp_si(deltax, pj1) >= 0) {
+      mpz_sub_ui(deltax, deltax, pj1);
+      cnte+=1;
+      pj=pj1;
+      pj1=pg.next_prime();
     }
-    cnte--;
-    mpz_sub_ui(sum,sum,p);
-    mpz_sub(delta, sum_x, sum);  
-    p=lastp;
+    //gmp_printf("cnte= %d pk= %ld deltax= %.Zd\n",cnte,pj,deltax);
     if (verbose)
-      gmp_printf("cnte= %d p= %ld delta= %.Zd\n",cnte,p,delta);
+      gmp_printf("cnte= %d pk= %ld deltax= %.Zd\n",cnte,pj,deltax);
     else
-      gmp_printf("%ld %.Zd\n",p,delta);
+      gmp_printf("%ld %.Zd\n",pj,deltax);
     return 0;
-  }
+    }
   else {
     p= pg.prev_prime(x);
-    mpz_add_ui(sum_x, sum_x, p);
-    while (mpz_cmp_si(sum_x, 0) < 0) {
+    mpz_add_ui(deltax, deltax, p);
+    while (mpz_cmp_si(deltax, 0) < 0) {
       p=pg.prev_prime();
       cnte++;
-      mpz_add_ui(sum_x, sum_x, p);
+      mpz_add_ui(deltax, deltax, p);
     }
-    mpz_set(delta, sum_x);
+    mpz_set(delta, deltax);
     p=pg.prev_prime();
     if (verbose)
       gmp_printf("cnte= %d pk= %ld delta= %.Zd\n",cnte,p,delta);

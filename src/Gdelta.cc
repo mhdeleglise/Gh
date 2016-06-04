@@ -276,21 +276,25 @@ void Gdelta::show_factors() {
   if (numer > 1) {
     cout << "Facteurs premiers du numerateur   : ";
     mpz_init_set_si(q,pk);
-    mpz_nextprime(q,q);
+    //mpz_nextprime(q,q);
+    //gmp_printf("Premier q a essayer %.Zd\n",q);
     while (numer > 1)
       {
-	cnte += 1;
+	mpz_nextprime(q,q);
 	while (! mpz_divisible_p(numer.get_mpz_t(), q)) {
+	  //gmp_printf("q= %.Zd ne divse pas numer= %.Zd\n",numer.get_mpz_t());
 	  mpz_nextprime(q,q);
 	}
 	gmp_printf("%.Zd ", q);
 	mpz_divexact(numer.get_mpz_t(), numer.get_mpz_t(), q);
+	cnte+=1;
+	//cout << "Cnte devient " << cnte << endl;
+	//gmp_printf("Apres division numer devient %.Zd\n",numer.get_mpz_t());
       }
-
-    cout << endl;
-    cout << "Facteurs premiers du denominateur : ";
-    int i=0;
     mpz_class denom=Gprov.get_den();
+    gmp_printf("\nFacteurs premiers du denominateur : ");
+    int i=0;
+
     mpz_init_set_si(q,pk);
 
   if (cnte==1) {
@@ -298,12 +302,14 @@ void Gdelta::show_factors() {
     return;
     }
 
-    
     while (i < cnte-1) {
+      //gmp_printf("On essaie q= %.Zd\n",q);
       while (!mpz_divisible_p(denom.get_mpz_t(), q)) {
 	prevprime(q,q);
+	//gmp_printf("On essaie q= %.Zd\n",q);
       }
       i+=1;
+      //gmp_printf("i devient %d   on divise par %.Zd\n",i,q);
       mpz_divexact(denom.get_mpz_t(), denom.get_mpz_t(), q);
       if (i < cnte-1)
 	gmp_printf("%.Zd ",q);
