@@ -54,7 +54,6 @@ class GcombData{
 };
 
 class Gdelta{
-  long pk;
   long m;
   int type;
   long dmax;
@@ -70,6 +69,8 @@ class Gdelta{
   GcombData G2;
  public:
   long ecart;
+  mpz_t Nk;
+  long pk;
   mpq_class value() {return Gprov;}
   long double log();
   Gdelta() {};
@@ -81,6 +82,7 @@ class Gdelta{
   void showLog();
   void show_frac();
   void show_factors();
+  void show_value();
   long Pplus();
 };
 

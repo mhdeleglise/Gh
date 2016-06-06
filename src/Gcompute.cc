@@ -4,20 +4,18 @@
 #include<unistd.h>
 #include"utilities.h"
 #include"Gfunction.h"
-
+#include"Nk.h"
 int main(int argc, char* argv[]){
 
-  int Pplus, Log, Factors;
+  int Pplus, Log, Factors, Value;
   const int maxdinit=500;
   const int verbose=0;
 
-  Pplus=Log=Factors=0;
+  Pplus=Log=Factors=Value=0;
 
   int c;
-  while((c=  getopt(argc, argv, "lpf")) != EOF) {
+  while((c=  getopt(argc, argv, "lpfv")) != EOF) {
     switch (c) {
-    case 'v':
-      break;
     case 'p':
       Pplus=1;
       break;
@@ -26,6 +24,10 @@ int main(int argc, char* argv[]){
       break;
     case 'f':
       Factors=1;
+      break;
+    case 'v':
+      Value=1;
+      break;
     }
   }
   
@@ -33,13 +35,20 @@ int main(int argc, char* argv[]){
   long m=atol(argv[optind+1]);
   Gdelta res(p,m,maxdinit,verbose);
   cout << endl;
-  res.show_frac();
+  if (Factors)
+    res.show_factors();
+
   if (Log)
     res.showLog();
   if (Pplus)
     cout << "Pplus = " << res.Pplus() << endl << endl;
   if (Factors) {
-    res.show_factors();
+
   }
-  return 0;
+  if (Value) {
+    Nk_compute(res.Nk, res.pk);
+    //gmp_printf("Nk=%.Zd\n\n",res.Nk);
+    res.show_value();
+  }
+return 0;
 }

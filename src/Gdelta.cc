@@ -4,6 +4,7 @@
 #include"numTheory.h"
 #include"utilities.h"
 #include"Gfunction.h"
+#include"Nk.h"
 
 //Calculateurs combinatoires globaux
 
@@ -16,6 +17,7 @@ void Gdelta::init(long pk,long m,int maxdinit,int imp) {
   dlist.resize(0);
   this->pk=pk;
   this->m = m;
+  mpz_init(this->Nk);
   maxdinit=maxdinit-maxdinit%2;
 
   if (!is_prime(pk)) {
@@ -271,53 +273,78 @@ void prevprime(mpz_t rop, mpz_t x);
 
 void Gdelta::show_factors() {
   int cnte=0;
-  mpz_class numer=Gprov.get_num();
   mpz_t q;
-  if (numer > 1) {
-    cout << "Facteurs premiers du numerateur   : ";
-    mpz_init_set_si(q,pk);
-    //mpz_nextprime(q,q);
-    //gmp_printf("Premier q a essayer %.Zd\n",q);
-    while (numer > 1)
-      {
-	mpz_nextprime(q,q);
-	while (! mpz_divisible_p(numer.get_mpz_t(), q)) {
-	  //gmp_printf("q= %.Zd ne divse pas numer= %.Zd\n",numer.get_mpz_t());
-	  mpz_nextprime(q,q);
-	}
-	gmp_printf("%.Zd ", q);
-	mpz_divexact(numer.get_mpz_t(), numer.get_mpz_t(), q);
-	cnte+=1;
-	//cout << "Cnte devient " << cnte << endl;
-	//gmp_printf("Apres division numer devient %.Zd\n",numer.get_mpz_t());
+  mpz_init_set_si(q,pk);
+  mpz_class numer=Gprov.get_num();
+  mpz_class denom=Gprov.get_den();
+
+  if (Gprov==1)
+    {
+      printf("h(n) is the product of all the primes not greater then %ld \n", pk);
+      return;
       }
-    mpz_class denom=Gprov.get_den();
-    gmp_printf("\nFacteurs premiers du denominateur : ");
-    int i=0;
-
-    mpz_init_set_si(q,pk);
-
-  if (cnte==1) {
-    gmp_printf("%.Zd\n\n",denom.get_mpz_t());
-    return;
+  
+  //  printf("h(n)= N x Num / Den where \n");
+  //  printf("N is the product of all the primes not greater then %ld \n", pk);
+  printf("h(n)= 2 x 3 x 5 x ... x %ld x Num / Den \n", pk);
+  printf("with\n");
+  printf("Num = ");
+  while (numer > 1)
+    {
+      mpz_nextprime(q,q);
+      while (! mpz_divisible_p(numer.get_mpz_t(), q)) {
+	mpz_nextprime(q,q);
+      }
+      mpz_divexact(numer.get_mpz_t(), numer.get_mpz_t(), q);
+      cnte+=1;
+      if (cnte==1)
+	if (numer==1) {
+	  gmp_printf("%.Zd\n", q);
+	  break;
+	 }
+	else {
+	  gmp_printf("%.Zd x ", q);
+	}
+      else {
+	if (numer > 1)
+	  gmp_printf("%.Zd x ", q);
+	else
+	  gmp_printf("%.Zd\n", q);
+      }
     }
 
-    while (i < cnte-1) {
-      //gmp_printf("On essaie q= %.Zd\n",q);
-      while (!mpz_divisible_p(denom.get_mpz_t(), q)) {
-	prevprime(q,q);
-	//gmp_printf("On essaie q= %.Zd\n",q);
-      }
-      i+=1;
-      //gmp_printf("i devient %d   on divise par %.Zd\n",i,q);
-      mpz_divexact(denom.get_mpz_t(), denom.get_mpz_t(), q);
-      if (i < cnte-1)
-	gmp_printf("%.Zd ",q);
-      else {
-	gmp_printf("%.Zd ",q);
-	gmp_printf("%.Zd\n",denom.get_mpz_t());
-      }
+  if (cnte==1) {
+    gmp_printf("Den = %.Zd\n\n",denom.get_mpz_t());
+    return;
+  }
+  printf("Den = ");  
+  int i=0;
+  while (i < cnte-1) {
+    while (!mpz_divisible_p(denom.get_mpz_t(), q)) {
+      prevprime(q,q);
+    }
+    i+=1;
+    mpz_divexact(denom.get_mpz_t(), denom.get_mpz_t(), q);
+    if (i < cnte-1)
+      gmp_printf("%.Zd x ",q);
+    else {
+      gmp_printf("%.Zd x ",q);
+      gmp_printf("%.Zd\n",denom.get_mpz_t());
     }
   }
   cout << endl;
+}
+
+void Gdelta::show_value() {
+  if (pk > 1000000) {
+    printf("The number of digits of the base 10 representation of h(n) is too big\n");
+  }
+ else
+   {
+     mpz_class numer=Gprov.get_num();
+     mpz_class denom=Gprov.get_den();
+     mpz_div(Nk, Nk, denom.get_mpz_t());
+     mpz_mul(Nk, Nk, numer.get_mpz_t());
+     gmp_printf("h(n)=%.Zd\n",Nk);
+   }
 }

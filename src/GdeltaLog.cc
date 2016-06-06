@@ -16,6 +16,6 @@ void Gdelta::showLog() {
   mpfr_log(lognum, numer, MPFR_RNDN);
   mpfr_log(logden, denom, MPFR_RNDN);
   mpfr_sub(res, lognum, logden, MPFR_RNDN);
-  mpfr_printf("Log: %.26Re\n",res);
+  mpfr_printf("Log: %.26Re\n\n",res);
 }
 
