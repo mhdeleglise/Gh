@@ -8,17 +8,11 @@ The function h(n) is defined in
 For example, h(12) = 42 because  the maximum value of a product
 of _distinct primes_ whose sum is not larger than 12 is  2 x 3 x 7 = 42.
 
-Let us denote p(j) the  j em prime,
-
-- s(j) =  2 + 3 + .... + p(j)  the sum of the j first primes
-
-- N(j)=   2 x 3 + .... x p(j)  the product of the j first primes
-
-Let n be a positive integer. We define k=k(n) as
-the largest k such that sk <= n,
+Let n be a positive integer. We define pk as
+the largest prime p such that sk= 2 + 3 + .... +pk <= n,
 and we denote dk  the difference n - sk.
 
-For example, for n=12 and N=10^9, we have
+For example, for n=12 and N=10^9, we have, respectively,
 
 | n  | pk |  sk  | dk |
 | ---------: | ---------: | ---------: | --------: |
