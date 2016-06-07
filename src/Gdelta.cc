@@ -337,7 +337,7 @@ void Gdelta::show_factors() {
 }
 
 void Gdelta::show_value() {
-  //cout << "show_value pk= " << pk << endl;
+  cout << "show_value pk= " << pk << endl;
   if (pk > 230561) {
     //printf("The number of digits of h(n) is bigger than 100 000\n");
     printf("The number of digits of h(n) is approximatively  %.1e\n", pk/::log((double) 10));///::log((double)10)).
@@ -345,6 +345,7 @@ void Gdelta::show_value() {
   }
  else
    {
+     Nk_compute(Nk, pk);
      mpz_class numer=Gprov.get_num();
      mpz_class denom=Gprov.get_den();
      mpz_div(Nk, Nk, denom.get_mpz_t());

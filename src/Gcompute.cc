@@ -34,7 +34,7 @@ int main(int argc, char* argv[]){
   long p=atol(argv[optind]);
   long m=atol(argv[optind+1]);
   Gdelta res(p,m,maxdinit,verbose);
-  cout << endl;
+
   if (Factors)
     res.show_factors();
 
@@ -46,8 +46,6 @@ int main(int argc, char* argv[]){
 
   }
   if (Value) {
-    Nk_compute(res.Nk, res.pk);
-    //gmp_printf("Nk=%.Zd\n\n",res.Nk);
     res.show_value();
   }
 return 0;
