@@ -19,8 +19,8 @@ For example, for n=12 and N=10^9, we have, respectively,
 | 12  | 5 | 10  | 2 |
 | 10^9 | 151057  | 24739512092254535 | 133215 |
 
-
-The value h(n) may be written as a product h(n) = Nk x G(pk, dk)
+Let us define Nk = 2 x 3 x .... x pk. The value h(n) is relatively
+close to Nk. More precisely, h(n) may be written as a product h(n) = Nk x G(pk, dk)
 where the function G(p,m) is a fraction which is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
 The value  of the fraction G(p,m)  has the following property: there exists a small integer s and
