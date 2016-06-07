@@ -26,12 +26,8 @@ where  G(p,m) is a rational number which is defined in
 This rational number  G(p,m)  has the following property:
 
 there exists a small integer s and primes qj and Qj such that
-q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
-- Num = Q1 x Q2  ...  x Qs
-- Den  =  q1 x q2  ...  x qs
-and
-
-- G(pk,dk) = Num/Den.
+- q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
+- G(pk,dk) = (Q1 x Q2  ...  x Qs)/(Q1 x Q2  ...  x Qs).
 
 
 h(n) is an huge number whose number of digits is about
