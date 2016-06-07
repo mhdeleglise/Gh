@@ -8,6 +8,12 @@ The function h(n) is defined in
 For example, h(12) = 42 because  the maximum value of a product
 of _distinct primes_ whose sum is not larger than 12 is  2 x 3 x 7 = 42.
 
+
+The h function is rapidly increasing, h(n) is a huge number whose
+number of digits is about 0.43 x sqrt(n log n), and it is impossible
+to write the decimal expansion of h(n) for moderate values of n.
+
+Netthertheless it is possible to describe the factorization of h(n).
 Let n be a positive integer. We define pk as
 the largest prime p such that sk= 2 + 3 + .... + pk <= n,
 and we denote dk  the difference n - sk.
@@ -29,10 +35,6 @@ there exists a small integer s and primes qj and Qj such that
 - q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 - G(pk,dk) = (Q1 x Q2  ...  x Qs)/(Q1 x Q2  ...  x Qs).
 
-
-h(n) is an huge number whose number of digits is about
-0.43 x sqrt(n log n), and it is impossible to write the decimal
-expansion of h(n).
 
 Let us come back Coming  to the example n=1000000000. In this case the
 number Nk is the product of all the primes uo to 151057. Its decimal
