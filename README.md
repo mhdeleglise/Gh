@@ -27,9 +27,7 @@ The value h(n) may be written as a product h(n) = Nk x G(pk, dk)
 where the function G(p,m) is a fraction which is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
 
-The value  h(n) is an huge number whose number of digits is about
-0.43 x sqrt(n log n), and it is impossible to write the decimal
-expansion of h(n). Nethertheless, there exists a small integer s and
+The value  of the fraction G(p,m)  has the following property: there exists a small integer s and
 primes qj and Qj such that
 q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 - Num = Q1 x Q2  ...  x Qs
@@ -37,6 +35,11 @@ q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 and
 
 - G(pk,dk) = Num/Den.
+
+
+h(n) is an huge number whose number of digits is about
+0.43 x sqrt(n log n), and it is impossible to write the decimal
+expansion of h(n).
 
 Let us come back Coming  to the example n=1000000000. In this case the
 number Nk is the product of all the primes uo to 151057. Its decimal
