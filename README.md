@@ -73,7 +73,7 @@ must be in your $PATH.
 # Command-line  hcompute
 -------------------------------
 ```
-Usage: primesum [OPTION] n
+Usage: hcompute  [OPTION] n
 Computes the factorization of h(n) for n <= 10^35 and some related values.
 
 Options:
