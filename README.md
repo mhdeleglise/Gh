@@ -8,8 +8,13 @@ The function h(n) is defined in
 (http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=spm&paperid=45&option_lang=eng)
 
 
-For example, h(10) = 2 x 3 x 5 = 30 is the maximum value of a product
-of primes whose sum is not larger than 10.
+For example, h(12) = 42 because  the maximum value of a product
+of primes whose sum is not larger than 12 is  2 x 3 x 7 = 42.
+
+- [x] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
+
 
 Let us denote p(j) the  j em prime,
 
