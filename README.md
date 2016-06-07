@@ -3,6 +3,11 @@
 ## the maximum value of a product of distinct primes
 ## whose sum is not greater than n.
 
+The function h(n) is defined in 
+[Maximal Product of Primes Whose Sum is Bounded]
+(http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=spm&paperid=45&option_lang=eng)
+
+
 For example, h(10) = 2 x 3 x 5 = 30 is the maximum value of a product
 of primes whose sum is not larger than 10.
 
