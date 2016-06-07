@@ -47,7 +47,9 @@ There exists a small integer s and primes qj and Qj such that
 | 12  | 5 | 7  | 7/5 |
 | 10^9 | 151091  | 17881 | 151091/17881 |
 
-For n=10^9, Nk is the product of all the primes uo to 151057. Its decimal
+- For n=12, Nk=2 x 3 + 5 = 30,  G(5,2) = 7/5 and h(n) = 30 x 7 /5 = 42.
+
+- For n=10^9, Nk is the product of all the primes uo to 151057. Its decimal
 expansion has 65449 digits, while the expansion of h(n) has 65450 digits.
 But the fraction h(n)/Nk=G(151057, 133215) is reduced to 151091/17881.
 
