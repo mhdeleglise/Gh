@@ -9,7 +9,7 @@ For example, h(12) = 42 because  the maximum value of a product
 of _distinct primes_ whose sum is not larger than 12 is  2 x 3 x 7 = 42.
 
 Let n be a positive integer. We define pk as
-the largest prime p such that sk= 2 + 3 + .... +pk <= n,
+the largest prime p such that sk= 2 + 3 + .... + pk <= n,
 and we denote dk  the difference n - sk.
 
 For example, for n=12 and N=10^9, we have, respectively,
