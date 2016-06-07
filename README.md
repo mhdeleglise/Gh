@@ -33,15 +33,18 @@ where  G(p,m) is a rational number which is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
 This rational number  G(p,m)  has the following property:
 
-there exists a small integer s and primes qj and Qj such that
+There exists a small integer s and primes qj and Qj such that
 - q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 - G(pk,dk) = (Q1 x Q2  ...  x Qs)/(Q1 x Q2  ...  x Qs).
 
+| n  | q1 q2  ...  qk  | Q1 Q2 ... Qk | G(pk,dk) | 
+| ---------: | ---------: | ---------: | --------: |
+| 12  | 5 | 7  | 7/5 |
+| 10^9 | 151091  | 17881 | 151091/17881 |
 
-Let us come back Coming  to the example n=1000000000. In this case the
-number Nk is the product of all the primes uo to 151057. Its decimal
-expansion has 65450 digits. But the fraction G(pk, dk) = G(151057,
-133215) is reduced to 151091/17881.
+For n=10^9, Nk is the product of all the primes uo to 151057. Its decimal
+expansion has 65449 digits, while the expansion of h(n) has 65450 digits.
+But the fraction h(n)/Nk=G(151057, 133215) is reduced to 151091/17881.
 
 
 
