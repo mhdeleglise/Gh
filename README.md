@@ -42,10 +42,26 @@ There exists a small integer s and primes qj and Qj such that
 - q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 - G(pk,dk) = (Q1 x Q2  ...  x Qs) / (q1 x q2  ...  x qs).
 
-| n  | q1 q2  ...  qk  | Q1 Q2 ... Qk |  G(pk,dk)  | 
-| ---------: | ---------: | ---------: | :--------: |
-| 12  | 5 | 7  | 7/5 |
-| 10^9 | 151091  | 17881 | 151091/17881 |
+<table>
+<tr align="center">
+    <td><b>n</b></td>
+	<td><b>q1... qs</b></td>
+    <td><b>Q1... Qs</b></td>
+<td><b>G(pkndk)</b></td>
+</tr>
+<tr>
+<td> 12 </td>
+<td> 5 </td>
+<td> 7 </td>
+<td>| 7/5</td>
+</tr>
+<tr>
+<td>10^9</td
+<td>151091</td>
+<td>17881 </td>
+<td> 151091/17881</td>
+</tr>>
+</table>
 
 - For n=12, Nk=2 x 3 + 5 = 30,  G(5,2) = 7/5 and h(n) = 30 x 7 /5 = 42.
 
