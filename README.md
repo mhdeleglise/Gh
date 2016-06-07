@@ -23,6 +23,8 @@ The value h(n) may be written as a product h(n) = Nk x G(pk, dk),
 where the function G(p,m) is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
 
+The value  h(n) is an huge number whose number of digits is about
+0.43 x sqrt(n log n).
 
 ```
 hcompute 100000000000000000000
