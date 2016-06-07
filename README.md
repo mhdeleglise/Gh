@@ -13,17 +13,11 @@ Let us denote p_j the  jeme prime,
 - N_j=   2 x 3 + .... x p_j  the product of the j first primes
 
 Let n be a positive integer. We define k(n),
-the integer k such that
+the integer k such that s_k <= n < s_(k+1)
 
-s_k <= n < s_(k+1)
-
-and
-
-we denote
+and we denote
 
 d_k the diffeence d_k = n - s_k.
 
-The value h(n) may be written as a product
-
-h(n) = N_k x G(p_k, delta_k)
+The value h(n) may be written as a product h(n) = N_k x G(p_k, delta_k)
 
