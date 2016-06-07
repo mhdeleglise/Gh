@@ -8,9 +8,9 @@ of primes whose sum is not larger than 10.
 
 Let us denote p_j the  jeme prime,
 
-s_j =  2 + 3 + .... + p_j  the sum of the j first primes
+- s_j =  2 + 3 + .... + p_j  the sum of the j first primes
 
-N_j=   2 x 3 + .... x p_j  the product of the j first primes
+- N_j=   2 x 3 + .... x p_j  the product of the j first primes
 
 Let n be a positive integer. We define k(n),
 the integer k such that
