@@ -1,7 +1,7 @@
 # Computing h(n), the maximum value of a product
 # of distinct primes whose sum is not greater than n.
 
-For example, h(12) = 42 because  the maximum value of a product
+For example, h(12) = 42 because  the maximum product
 of _distinct primes_ whose sum is not larger than 12 is  2 x 3 x 7 = 42.
 
 
