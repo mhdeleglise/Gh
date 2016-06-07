@@ -14,9 +14,9 @@ Let us denote p(j) the  j em prime,
 
 - N(j)=   2 x 3 + .... x p(j)  the product of the j first primes
 
-Let n be a positive integer. We define k(n) as
-the integer k such that s(k) <= n < s(k+1)
-and we denote d(k) the difference d(k) = n - s(k).
+Let n be a positive integer. We define k=k(n) as
+the largest k such that sk <= n,
+and we denote dk  the difference n - sk.
 
 For example, for n=12 and N=10^9, we have
 
