@@ -4,11 +4,9 @@
 
 The function h(n) is defined in 
 [Maximal Product of Primes Whose Sum is Bounded]
-(http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=spm&paperid=45&option_lang=eng)
-
-
+(http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=spm&paperid=45&option_lang=eng).
 For example, h(12) = 42 because  the maximum value of a product
-of primes whose sum is not larger than 12 is  2 x 3 x 7 = 42.
+of _distinct primes_ whose sum is not larger than 12 is  2 x 3 x 7 = 42.
 
 Let us denote p(j) the  j em prime,
 
