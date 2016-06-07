@@ -23,10 +23,15 @@ Take an example, n=10^9 = 1000 000 000. Then in this case,
 
 n= 1000000000 pk= 151057     sk= 999866785  dk= 133215.
 
+|  n |  pk | sk | dk|
+| --| -- | --| -- |
+| 12| 5   | 10|  2 |
+| 10^9 |  151057 | sk| 133215 |
+
+
 The value h(n) may be written as a product h(n) = Nk x G(pk, dk)
 where the function G(p,m) is a fraction which is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
-
 The value  of the fraction G(p,m)  has the following property: there exists a small integer s and
 primes qj and Qj such that
 q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
