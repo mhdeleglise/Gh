@@ -16,7 +16,6 @@ Let us denote p(j) the  j em prime,
 
 Let n be a positive integer. We define k(n) as
 the integer k such that s(k) <= n < s(k+1)
-
 and we denote d(k) the difference d(k) = n - s(k).
 
 For example, for n=12 and N=10^9, we have
