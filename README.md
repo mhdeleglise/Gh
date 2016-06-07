@@ -19,18 +19,18 @@ Nethertheless it is possible to describe the factorization of h(n).
 
 #### The factorization of h(n)
 
-Let n be a positive integer. We define pk as
-the largest prime p such that sk= 2 + 3 + .... + pk <= n,
-and we denote dk  the difference n - sk.
+Let n be a positive integer. We define p<sub>k</sub> as
+the largest prime p such that s<sub>k</sub>= 2 + 3 + .... + p<sub>k</sub> <= n,
+and we denote dk  the difference n - s<sub>k</sub>.
 
 For example, for n=12 and N=10^9, we have, respectively,
 
-| n  | pk |  sk  | dk |
+| n  | p<sub>k</sub> |  s<sub>k</sub>  | d<sub>k</sub> |
 | ---------: | ---------: | ---------: | --------: |
 | 12  | 5 | 10  | 2 |
 | 10^9 | 151057  | 24739512092254535 | 133215 |
 
-Let us define Nk = 2 x 3 x .... x pk. The value h(n) is relatively
+Let us define N<sub>k</sub> = 2 x 3 x .... x p<sub>k</sub>. The value h(n) is relatively
 close to Nk.
 
 More precisely, h(n) may be written as a product h(n) = Nk x G(pk, dk)
@@ -38,28 +38,30 @@ where  G(p,m) is a rational number which is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
 This rational number  G(p,m)  has the following property:
 
-There exists a small integer s and primes qj and Qj such that
-- q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
-- G(pk,dk) = (Q1 x Q2  ...  x Qs) / (q1 x q2  ...  x qs).
+There exists a small integer s and primes q<sub>j</sub> and Q<sub>j</sub> such that
+- q<sub>1</sub>q<sub>2</sub> < ... < q<sub>s</sub> <= p<sub>k</sub>
+   < Q<sub>1</sub> < Q<sub>2</sub> < ... < Q<sub>s</sub>
+- G(p<sub>k</sub>, d<sub>k</sub>) = (Q<sub>1</sub>  Q<sub>2</sub>  ...
+  Q<sub>s</sub>) / (q<sub>1</sub>  q<sub>2</sub>  ...  q<sub>s</sub>).
 
 <table>
 <tr align="center">
     <td><b>n</b></td>
-	<td><b>q1... qs</b></td>
-    <td><b>Q1... Qs</b></td>
-<td><b>G(pkndk)</b></td>
+	<td>q<sub>1</sub>... q<sub>s</sub></td>
+    <td>Q<sub>1</sub>... Q<sub>s</sub></td>
+     <td>G( p<sub>k</sub>, d<sub>k</sub> )</td>
 </tr>
 <tr>
 <td> 12 </td>
 <td> 5 </td>
 <td> 7 </td>
-<td>| 7/5</td>
+<td> 7/5</td>
 </tr>
 <tr>
-<td>10^9</td
+<td>10^9</td>
 <td>151091</td>
 <td>17881 </td>
-<td> 151091/17881</td>
+<td> 151091 / 17881</td>
 </tr>>
 </table>
 
