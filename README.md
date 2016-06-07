@@ -19,9 +19,7 @@ the integer k such that s(k) <= n < s(k+1)
 
 and we denote d(k) the difference d(k) = n - s(k).
 
-Take an example, n=10^9 = 1000 000 000. Then in this case,
-
-n= 1000000000 pk= 151057     sk= 999866785  dk= 133215.
+For example, for n=12 and N=10^9, we have
 
 | n  | pk |  sk  | dk |
 | ---------: | ---------: | ---------: | --------: |
