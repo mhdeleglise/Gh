@@ -19,7 +19,11 @@ the integer k such that s(k) <= n < s(k+1)
 
 and we denote d(k) the difference d(k) = n - s(k).
 
-The value h(n) may be written as a product h(n) = Nk x G(pk, dk),
+Take an example, n=10^9 = 1000 000 000. Then in this case,
+
+n= 1000000000 pk= 151057     sk= 999866785  dk= 133215.
+
+The value h(n) may be written as a product h(n) = Nk x G(pk, dk)
 where the function G(p,m) is a fraction which is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
 
@@ -33,6 +37,13 @@ q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 and
 
 - G(pk,dk) = Num/Den.
+
+Let us come back Coming  to the example n=1000000000. In this case the
+number Nk is the product of all the primes uo to 151057. Its decimal
+expansion has 65450 digits. But the fraction G(pk, dk) = G(151057,
+133215) is reduced to 151091/17881.
+
+
 
 
 ```
