@@ -15,7 +15,8 @@ endif
 SOURCES= erreur.cc primes1000000.cc Gcomb.cc Gdelta.cc
 COMMANDS= testGcomb testGdelta adjust_sx_delta factorG invli2 sublong Gcompute
 
-OBJ = erreur.o Gcomb.o Gdelta.o limpfr.o prev_prime.o GdeltaLog.o Nk.o
+OBJ = erreur.o Gcomb.o Gdelta.o limpfr.o prev_prime.o GdeltaLog.o Nk.o\
+	psi.o psi_theta_diff.o  theta.o
 
 CXX =  g++ -I $(INC) $(LFLAGS) $(CFLAGS) $(LIBDIR)
 
@@ -27,23 +28,6 @@ all: $(OBJ) $(COMMANDS)
 	echo $(CFLAGS)
 	echo $(LPATH)
 
-erreur.o:erreur.cc
-	$(CXX) -O2 -c erreur.cc
-
-Gcomb.o: Gcomb.cc
-	$(CXX) -O2 -c  -Wall Gcomb.cc
-
-Gdelta.o: Gdelta.cc
-	$(CXX) -O2 -c  -Wall Gdelta.cc
-
-Nk.o: Nk.cc
-	$(CXX) -O2 -c Nk.cc
-
-GdeltaLog.o: GdeltaLog.cc
-	$(CXX) -O2 -c  -Wall GdeltaLog.cc
-
-prev_prime.o:	prev_prime.cc
-	$(CXX) -O2 -c  -Wall prev_prime.cc
 
 testGcomb:	$(OBJ) testGcomb.cc	
 	$(CXX) $(CFLAGS) -o  testGcomb  testGcomb.cc $(LPATH) $(OBJ) $(LIBS)
