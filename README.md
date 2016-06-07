@@ -1,7 +1,7 @@
 # Computing h(n)
 
-## the maximum value of a product of distinct primes
-## whose sum is not greater than n.
+#### the maximum value of a product of distinct primes
+#### whose sum is not greater than n.
 
 The function h(n) is defined in 
 [Maximal Product of Primes Whose Sum is Bounded]
@@ -24,7 +24,6 @@ and we denote d(k) the difference d(k) = n - s(k).
 
 The value h(n) may be written as a product h(n) = Nk x G(pk, dk)
 
-Some basic Git commands are:
 ```
 hcompute 100000000000000000000
 ```
@@ -34,9 +33,8 @@ hcompute -v 100000000000000000000
 ```
 
 ```
-hcompute -P 100000000000000000000
+hcompute -p 100000000000000000000
 ```
-
 
 ```
 hcompute -l 100000000000000000000
