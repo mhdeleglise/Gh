@@ -39,7 +39,7 @@ int main(int argc, char* argv[]){
     res.show_factors();
 
   if (Log)
-    res.showLog();
+    res.showLog(10);
   if (Pplus)
     cout << "Pplus = " << res.Pplus() << endl << endl;
   if (Factors) {

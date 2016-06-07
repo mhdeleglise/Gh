@@ -287,7 +287,8 @@ void Gdelta::show_factors() {
   //  printf("h(n)= N x Num / Den where \n");
   //  printf("N is the product of all the primes not greater then %ld \n", pk);
   printf("h(n)= 2 x 3 x 5 x ... x %ld x Num / Den \n", pk);
-  printf("with\n");
+  //printf("with\n");
+  //printf("\n");
   printf("Num = ");
   while (numer > 1)
     {
@@ -336,8 +337,11 @@ void Gdelta::show_factors() {
 }
 
 void Gdelta::show_value() {
-  if (pk > 1000000) {
-    printf("The number of digits of the base 10 representation of h(n) is too big\n");
+  //cout << "show_value pk= " << pk << endl;
+  if (pk > 230561) {
+    //printf("The number of digits of h(n) is bigger than 100 000\n");
+    printf("The number of digits of h(n) is approximatively  %.1e\n", pk/::log((double) 10));///::log((double)10)).
+    printf("I dont'think it is usefull to write this number.\n");
   }
  else
    {

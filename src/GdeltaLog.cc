@@ -2,7 +2,7 @@
 #include"Gfunction.h"
 #include"theta.h"
 
-void Gdelta::showLog() {
+void Gdelta::showLog(int base) {
   printf("Computing log h(n), it may be long ... \n");
   mpz_class num = Gprov.get_num();
   mpz_class den = Gprov.get_den();
@@ -23,6 +23,16 @@ void Gdelta::showLog() {
   theta(thetapk, pk);
   //pfr_printf("Theta: %.26Re\n\n",thetapk);
   mpfr_add(res, res, thetapk, MPFR_RNDN);
-  mpfr_printf("Log h(n): %.26Re\n\n",res);
+  if (base==0)
+    mpfr_printf("Log h(n): %.26Re\n\n",res);
+  else {
+    mpfr_t base_mpfr;
+    mpfr_t base_log;
+    mpfr_inits(base_mpfr, base_log, (mpfr_ptr) 0);
+    mpfr_set_si(base_mpfr, base, MPFR_RNDN); 
+    mpfr_log(base_log, base_mpfr, MPFR_RNDN);
+    mpfr_div(res, res, base_log, MPFR_RNDN);
+    mpfr_printf("Log h(n): %.26Re\n\n",res);
+  }
 }
 
