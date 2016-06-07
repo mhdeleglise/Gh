@@ -40,7 +40,7 @@ This rational number  G(p,m)  has the following property:
 
 There exists a small integer s and primes qj and Qj such that
 - q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
-- G(pk,dk) = (Q1 x Q2  ...  x Qs)/(Q1 x Q2  ...  x Qs).
+- G(pk,dk) = (Q1 x Q2  ...  x Qs) / (q1 x q2  ...  x qs).
 
 | n  | q1 q2  ...  qk  | Q1 Q2 ... Qk |  G(pk,dk)  | 
 | ---------: | ---------: | ---------: | :--------: |
