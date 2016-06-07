@@ -37,7 +37,7 @@ There exists a small integer s and primes qj and Qj such that
 - q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 - G(pk,dk) = (Q1 x Q2  ...  x Qs)/(Q1 x Q2  ...  x Qs).
 
-| n  | q1 q2  ...  qk  | Q1 Q2 ... Qk | G(pk,dk) | 
+| n  | q1 q2  ...  qk  | Q1 Q2 ... Qk | :G(pk,dk) :| 
 | ---------: | ---------: | ---------: | --------: |
 | 12  | 5 | 7  | 7/5 |
 | 10^9 | 151091  | 17881 | 151091/17881 |
