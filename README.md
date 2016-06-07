@@ -1,11 +1,6 @@
 # Computing h(n), the maximum value of a product
 # of distinct primes whose sum is not greater than n.
 
-The function h(n) is defined in 
-[Maximal Product of Primes Whose Sum is Bounded]
-(http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=spm&paperid=45&option_lang=eng).
-
-
 For example, h(12) = 42 because  the maximum value of a product
 of _distinct primes_ whose sum is not larger than 12 is  2 x 3 x 7 = 42.
 
@@ -101,10 +96,10 @@ which prints the values of pk and sk corresponding to n, for n upto 10^35.
 
 References
 ----------
-1. M. Deleglise, J. Rivat, Computing pi(x): [The Meissel, Lehmer,
-Lagarias, Miller, Odlyzko method](http://www.ams.org/journals/mcom/1996-65-213/S0025-5718-96-00674-6/)
-. Math. Comp., 65 (1996), no. 213,
-   235-245.
+1. M. Deleglise, J. Rivat,
+[ Computing pi(x): The Meissel, Lehmer,Lagarias, Miller, Odlyzko method]
+(http://www.ams.org/journals/mcom/1996-65-213/S0025-5718-96-00674-6/)
+. Math. Comp., 65 (1996), no. 213, 235-245.
 2. M. Deleglise and J.-L. Nicolas, [Maximal product of primes whose sum
 is bounded](http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=spm&paperid=45&option_lang=eng),
 Bull. Proc. of the Steklov Institute 17 (2013), 82-112)
