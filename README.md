@@ -23,8 +23,9 @@ Let us define Nk = 2 x 3 x .... x pk. The value h(n) is relatively
 close to Nk. More precisely, h(n) may be written as a product h(n) = Nk x G(pk, dk)
 where  G(p,m) is a rational number which is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
-This rational number  G(p,m)  has the following property: there exists a small integer s and
-primes qj and Qj such that
+This rational number  G(p,m)  has the following property:
+
+there exists a small integer s and primes qj and Qj such that
 q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 - Num = Q1 x Q2  ...  x Qs
 - Den  =  q1 x q2  ...  x qs
