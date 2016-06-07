@@ -3,7 +3,7 @@
 ## the maximum value of a product of distinct primes
 ## whose sum is not greater than n.
 
-For example, h(10) = 2 x 3 x 5 = 30 is the maxumum value of a product
+For example, h(10) = 2 x 3 x 5 = 30 is the maximum value of a product
 of primes whose sum is not larger than 10.
 
 Let us denote p(j) the  j em prime,
@@ -22,4 +22,17 @@ The value h(n) may be written as a product h(n) = Nk x G(pk, dk)
 Some basic Git commands are:
 ```
 hcompute 100000000000000000000
+```
+
+```
+hcompute -v 100000000000000000000
+```
+
+```
+hcompute -P 100000000000000000000
+```
+
+
+```
+hcompute -l 100000000000000000000
 ```
