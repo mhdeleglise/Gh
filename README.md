@@ -10,12 +10,12 @@ Let us denote p(j) the  j em prime,
 
 - s(j) =  2 + 3 + .... + p(j)  the sum of the j first primes
 
-- Nj=   2 x 3 + .... x pj  the product of the j first primes
+- N(j)=   2 x 3 + .... x p(j)  the product of the j first primes
 
 Let n be a positive integer. We define k(n),
 the integer k such that s(k) <= n < s(k+1)
 
 and we denote d(k) the difference d(k) = n - s(k).
 
-The value h(n) may be written as a product h(n) = N( x G(pk, dk)
+The value h(n) may be written as a product h(n) = Nk ( x G(pk, dk)
 
