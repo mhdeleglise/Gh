@@ -65,9 +65,9 @@ primes upto x, doing  O(x^(2/3)/log^2 x) elemantary operations.
 You will find  a very good **primesum**  command on the repository
 [primesum](https://github.com/kimwalisch/primesum)
 of Kim Walisch. This implementation uses threads and this may easily
-divde by 10 the time of computation on a computer with a large
+divide by 10 or more the time of computation on a computer with a large
 nymber of cores.
-And this command must be in the directory where you download Gh, or
+The command primesum must be in the directory where you download Gh, or
 must be in your $PATH.
 
 # Command-line  hcompute
