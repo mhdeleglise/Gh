@@ -1,6 +1,6 @@
 # Computing h(n)
 
-###### the maximum value of a product of distinct primes whose sum is not greater than n.
+##### the maximum value of a product of distinct primes whose sum is not greater than n.
 
 The function h(n) is defined in 
 [Maximal Product of Primes Whose Sum is Bounded]
