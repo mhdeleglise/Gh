@@ -31,45 +31,45 @@ For example, for n=12 and N=10^9, we have, respectively,
 | 10^9 | 151057  | 24739512092254535 | 133215 |
 
 Let us define N<sub>k</sub> = 2 x 3 x .... x p<sub>k</sub>. The value h(n) is relatively
-close to Nk.
+close to N<sub>k</sub>.
 
-More precisely, h(n) may be written as a product h(n) = Nk x G(pk, dk)
+More precisely, h(n) may be written as a product h(n) = N<sub>k</sub> x G(pk, dk)
 where  G(p,m) is a rational number which is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
 This rational number  G(p,m)  has the following property:
 
 There exists a small integer s and primes q<sub>j</sub> and Q<sub>j</sub> such that
-- q<sub>1</sub>q<sub>2</sub> < ... < q<sub>s</sub> <= p<sub>k</sub>
+- q<sub>1</sub> q<sub>2</sub> < ... < q<sub>s</sub> = p<sub>k</sub>
    < Q<sub>1</sub> < Q<sub>2</sub> < ... < Q<sub>s</sub>
 - G(p<sub>k</sub>, d<sub>k</sub>) = (Q<sub>1</sub>  Q<sub>2</sub>  ...
   Q<sub>s</sub>) / (q<sub>1</sub>  q<sub>2</sub>  ...  q<sub>s</sub>).
 
 <table>
 <tr align="center">
-    <td><b>n</b></td>
+    <td>n</td>
 	<td>q<sub>1</sub>... q<sub>s</sub></td>
     <td>Q<sub>1</sub>... Q<sub>s</sub></td>
-     <td>G( p<sub>k</sub>, d<sub>k</sub> )</td>
+     <td>G( p<sub>k</sub> , d<sub>k</sub> )</td>
 </tr>
-<tr>
+<tr align="right">
 <td> 12 </td>
 <td> 5 </td>
 <td> 7 </td>
 <td> 7/5</td>
 </tr>
-<tr>
-<td>10^9</td>
+<tr align="right">
+<td>10<sup>9</sup></td>
 <td>151091</td>
 <td>17881 </td>
 <td> 151091 / 17881</td>
-</tr>>
+</tr>
 </table>
 
-- For n=12, Nk=2 x 3 + 5 = 30,  G(5,2) = 7/5 and h(n) = 30 x 7 /5 = 42.
+- For n=12, N<sub>k</sub>=2 x 3 + 5 = 30,  G(5,2) = 7/5 and h(n) = 30 x 7 /5 = 42.
 
-- For n=10^9, Nk is the product of all the primes uo to 151057. Its decimal
+- For n=10^9, N<sub>k</sub> is the product of all the primes uo to 151057. Its decimal
 expansion has 65449 digits, while the expansion of h(n) has 65450 digits.
-But the fraction h(n)/Nk=G(151057, 133215) is reduced to 151091/17881.
+But the fraction h(n)/N<sub>k</sub>=G(151057, 133215) is reduced to 151091/17881.
 
 # Prerequisites
 
