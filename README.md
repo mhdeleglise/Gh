@@ -25,12 +25,14 @@ where the function G(p,m) is a fraction which is defined in
 
 The value  h(n) is an huge number whose number of digits is about
 0.43 x sqrt(n log n), and it is impossible to write the decimal
-expansion of h(n). Nether the less,  the fraction G(pk, dk) is
-of the Num/Den,
-There exists a small integer s and primes qj and Qj such that  q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
+expansion of h(n). Nethertheless, there exists a small integer s and
+primes qj and Qj such that
+q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 - Num = Q1 x Q2  ...  x Qs
 - Den  =  q1 x q2  ...  x qs
+and
 
+- G(pk,dk) = Num/Den.
 
 
 ```
