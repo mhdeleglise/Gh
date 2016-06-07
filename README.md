@@ -11,11 +11,6 @@ The function h(n) is defined in
 For example, h(12) = 42 because  the maximum value of a product
 of primes whose sum is not larger than 12 is  2 x 3 x 7 = 42.
 
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
-
-
 Let us denote p(j) the  j em prime,
 
 - s(j) =  2 + 3 + .... + p(j)  the sum of the j first primes
