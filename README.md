@@ -90,3 +90,9 @@ This repository gives you the skcompute function
 skcompute n
 ```
 which prints the values of pk and sk corresponding to n, for n upto 10^35.
+
+References
+----------
+1. M. Deleglise, J. Rivat, Computing pi(x): The Meissel, Lehmer, Lagarias, Miller, Odlyzko method. Math. Comp., 65 (1996), no. 213, 235-245.
+2. M. Deleglise and J.-L. Nicolas, Maximal product of primes whose sum is bounded, Bull. Proc. of the Steklov Institute 17 (2013), 82-112.
+3. M. Delegise, J.-L. Nicolas and P. Zimmermann,  Landau's function  for one million billions, J. Theor. Nombres Bordeaux. 20 (2008), no. 3, 625-671.
