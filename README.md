@@ -17,5 +17,5 @@ the integer k such that s(k) <= n < s(k+1)
 
 and we denote d(k) the difference d(k) = n - s(k).
 
-The value h(n) may be written as a product h(n) = Nk ( x G(pk, dk)
+The value h(n) may be written as a product h(n) = Nk x G(pk, dk)
 
