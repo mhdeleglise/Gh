@@ -21,9 +21,9 @@ For example, for n=12 and N=10^9, we have, respectively,
 
 Let us define Nk = 2 x 3 x .... x pk. The value h(n) is relatively
 close to Nk. More precisely, h(n) may be written as a product h(n) = Nk x G(pk, dk)
-where the function G(p,m) is a fraction which is defined in
+where  G(p,m) is a rational number which is defined in
 [Landau's function for one million billions] (https://eudml.org/doc/10854).
-The value  of the fraction G(p,m)  has the following property: there exists a small integer s and
+This rational number  G(p,m)  has the following property: there exists a small integer s and
 primes qj and Qj such that
 q1 < q2 < ... < qs <= pk < Q1 < Q2 < ... Qs
 - Num = Q1 x Q2  ...  x Qs
