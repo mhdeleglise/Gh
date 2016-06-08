@@ -71,6 +71,13 @@ Options:
   -v, print h(n) if it has no more than 100000 digits.
 ```
 
+Caution: computing log h(n) is hard. The essential part of this
+computation is to get the value theta(p<sub>k</sub>).
+Theta function  is defined by theta(x) = sum{p prime, p<=x, | log p}.
+The Meissel method doesn't work for this sum. In (4) an
+algorithm computing theta(x) in time O(x^(2/3+epsilon) is given.
+It is used in this package.
+
 # Command-line skcompute
 ----------------------
 
@@ -99,6 +106,7 @@ must be in your $PATH.
 Build instructions (Unix-like OSes)
 -----------------------------------
 You need to have installed a C++ compiler and GNU make.
+It works on PC linux machines and on my macbook pro.
 
 Download
 [Gh.tar.gz](https://dl.bintray.com/mhdeleglise/Gh/Gh.tar.gz)
@@ -121,3 +129,7 @@ Bull. Proc. of the Steklov Institute 17 (2013), 82-112)
 3. M. Delegise, J.-L. Nicolas and P. Zimmermann,
 [Landau's function  for one million billions](https://eudml.org/doc/10854)
 , J. Theor. Nombres Bordeaux. 20 (2008), no. 3, 625-671.
+
+4. M. Deleglise, J. Rivat, Computing Psi(x), 
+Math. Comp. 67 (1998), no. 224, 1691-1696.
+[AMS](http://www.ams.org/journals/mcom/1998-67-224/S0025-5718-98-00977-6/).
