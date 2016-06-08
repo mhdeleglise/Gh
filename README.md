@@ -34,13 +34,13 @@ where  G(p,m) is a rational number which is defined in
 This rational number  G(p,m)  has the following property:
 
 There exists a small integer s and primes q<sub>j</sub> and Q<sub>j</sub> such that
-- q<sub>1</sub> q<sub>2</sub> < ... < q<sub>s</sub> = p<sub>k</sub>
+- q<sub>1</sub> q<sub>2</sub> < ... < q<sub>s</sub> <= p<sub>k</sub>
    < Q<sub>1</sub> < Q<sub>2</sub> < ... < Q<sub>s</sub>
 - G(p<sub>k</sub>, d<sub>k</sub>) = (Q<sub>1</sub>  Q<sub>2</sub>  ...
   Q<sub>s</sub>) / (q<sub>1</sub>  q<sub>2</sub>  ...  q<sub>s</sub>).
 
-More over, all the Q<sub>j</sub>, and all of the q<sub>j</sub>, **
-  except perhaps q<sub>1</sub>**, are close to p<sub>k</sub>.  
+More over, all the Q<sub>j</sub>, and all of the q<sub>j</sub>, 
+ ** except perhaps q<sub>1</sub>**, are close to p<sub>k</sub>.  
 
 For n=12 and N=10^9, we have, respectively,
 
