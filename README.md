@@ -56,19 +56,6 @@ For n=12 and N=10^9, we have, respectively,
 expansion has 65,449 digits, while the expansion of h(n) has 65,450 digits.
 But the fraction h(n)/N<sub>k</sub>=G(151,057, 133,215) is reduced to 151,091/17,881.
 
-# Prerequisites
-
-Before using this repository you need to install a  _primesum_
-function on your computer. This function computes the sum of
-primes upto x, doing  O(x^(2/3)/log^2 x) elemantary operations.
-
-You will find  a very good **primesum**  command on the repository
-[primesum](https://github.com/kimwalisch/primesum)
-of Kim Walisch. This implementation uses threads and this may easily
-divide by 10 or more the time of computation on a computer with a large
-nymber of cores.
-The command primesum must be in the directory where you download Gh, or
-must be in your $PATH.
 
 # Command-line  hcompute
 -------------------------------
@@ -93,6 +80,33 @@ This repository gives you the skcompute function
 skcompute n
 ```
 which prints the values of pk and sk corresponding to n, for n upto 10^35.
+
+
+# Prerequisites
+
+Before using this repository you need to install a  _primesum_
+function on your computer. This function computes the sum of
+primes upto x, doing  O(x^(2/3)/log^2 x) elemantary operations.
+
+You will find  a very good **primesum**  command on the repository
+[primesum](https://github.com/kimwalisch/primesum)
+of Kim Walisch. This implementation uses threads and this may easily
+divide by 10 or more the time of computation on a computer with a large
+nymber of cores.
+The command primesum must be in the directory where you download Gh, or
+must be in your $PATH.
+
+Build instructions (Unix-like OSes)
+-----------------------------------
+You need to have installed a C++ compiler and GNU make.
+
+Download
+[Gh.tar.gz](https://dl.bintray.com/mhdeleglise/Gh/Gh.tar.gz)
+and build it using:
+
+```
+$ ./make
+```
 
 References
 ----------
