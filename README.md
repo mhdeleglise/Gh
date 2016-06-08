@@ -99,7 +99,7 @@ You will find  a very good **primesum**  command on the repository
 [primesum](https://github.com/kimwalisch/primesum)
 of Kim Walisch. This implementation uses threads and this may easily
 divide by 10 or more the time of computation on a computer with a large
-nymber of cores.
+number of cores.
 The command primesum must be in the directory where you download Gh, or
 must be in your $PATH.
 
