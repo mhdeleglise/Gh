@@ -21,6 +21,6 @@ int main(int argc, char* argv[]){
     maxdinit=atoi(argv[4]);
 
   Gdelta res(p,m,maxdinit,verbose);
-  //res.show_pk_Gp();
+  res.display(0);
   return 0;
 }

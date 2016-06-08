@@ -18,7 +18,7 @@ COMMANDS= testGcomb testGdelta adjust_sx_delta factorG invli2 sublong Gcompute
 OBJ = erreur.o Gcomb.o Gdelta.o limpfr.o prev_prime.o GdeltaLog.o Nk.o\
 	psi.o psi_theta_diff.o  theta.o
 
-CXX =  g++ -I $(INC) $(LFLAGS) $(CFLAGS) $(LIBDIR)
+CXX =  g++ -I $(INC) $(LFLAGS) $(CFLAGS)
 
 %.o: %.cc
 	$(CXX) -c   $<
@@ -30,25 +30,25 @@ all: $(OBJ) $(COMMANDS)
 
 
 testGcomb:	$(OBJ) testGcomb.cc	
-	$(CXX) $(CFLAGS) -o  testGcomb  testGcomb.cc $(LPATH) $(OBJ) $(LIBS)
+	$(CXX) $(CFLAGS) -o  testGcomb  testGcomb.cc $(LPATH) $(OBJ) $(LIBS) $(LIBDIR)
 
 testGdelta:	$(OBJ) testGdelta.cc
-	$(CXX) $(CFLAGS) -o  testGdelta  testGdelta.cc $(LPATH) $(OBJ) $(LIBS)
+	$(CXX) $(CFLAGS) -o  testGdelta  testGdelta.cc $(LPATH) $(OBJ) $(LIBS)  $(LIBDIR)
 
 Gcompute:	$(OBJ) Gcompute.cc
-	$(CXX) $(CFLAGS) -o  Gcompute  Gcompute.cc $(LPATH) $(OBJ) $(LIBS) 
+	$(CXX) $(CFLAGS) -o  Gcompute  Gcompute.cc $(LPATH) $(OBJ) $(LIBS)  $(LIBDIR)
 
 factorG:	$(OBJ) factorG.cc
-	$(CXX) $(CFLAGS) -o  factorG  factorG.cc $(LPATH) $(OBJ) $(LIBS)
+	$(CXX) $(CFLAGS) -o  factorG  factorG.cc $(LPATH) $(OBJ) $(LIBS)  $(LIBDIR)
 
 adjust_sx_delta: $(OBJ) adjust_sx_delta.cc
-	$(CXX) $(CFLAGS) -o adjust_sx_delta  adjust_sx_delta.cc $(LPATH) $(OBJ) $(LIBS)
+	$(CXX) $(CFLAGS) -o adjust_sx_delta  adjust_sx_delta.cc $(LPATH) $(OBJ) $(LIBS)  $(LIBDIR)
 
 invli2:	invli2.cc $(OBJ)
-	$(CXX) -o invli2 invli2.cc $(LPATH) $(OBJ) $(LIBS)
+	$(CXX) -o invli2 invli2.cc $(LPATH) $(OBJ) $(LIBS)  $(LIBDIR)
 
 sublong:	sublong.cc $(OBJ)
-	$(CXX) -o sublong sublong.cc $(LPATH) $(OBJ) $(LIBS)
+	$(CXX) -o sublong sublong.cc $(LPATH) $(OBJ) $(LIBS)    $(LIBDIR)
 
 limpfr.o:
 	$(CXX) -c limpfr.cc

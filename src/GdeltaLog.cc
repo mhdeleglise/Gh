@@ -19,9 +19,10 @@ void Gdelta::showLog(int base) {
   mpfr_log(lognum, numer, MPFR_RNDN);
   mpfr_log(logden, denom, MPFR_RNDN);
   mpfr_sub(res, lognum, logden, MPFR_RNDN);
-  //mpfr_printf("Glog: %.26Re\n\n",res);
+  //  mpfr_printf("Glog: %.26Re\n\n",res);
+  //cout << "Will compute theta pk= " << pk << endl;
   theta(thetapk, pk);
-  //pfr_printf("Theta: %.26Re\n\n",thetapk);
+  //mpfr_printf("Theta: %.26Re\n\n",thetapk);
   mpfr_add(res, res, thetapk, MPFR_RNDN);
   if (base==0)
     mpfr_printf("Log h(n): %.26Re\n\n",res);

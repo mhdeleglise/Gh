@@ -280,13 +280,39 @@ void Gdelta::show_factors() {
 
   if (Gprov==1)
     {
-      printf("h(n) is the product of all the primes not greater then %ld \n", pk);
-      return;
+      switch (pk) {
+      case 2:
+	printf("h(n)= %d\n",2);
+	break;
+      case 3:
+	printf("h(n)= %d\n",6);
+	break;
+      case 5:
+	printf("h(n)= %d\n",30);
+	break;
+      default:
+	printf("h(n) = 2 x 3 x ..... x %ld\n",pk);
       }
+      return;
+    }
   
   //  printf("h(n)= N x Num / Den where \n");
   //  printf("N is the product of all the primes not greater then %ld \n", pk);
-  printf("h(n)= 2 x 3 x 5 x ... x %ld x Num / Den \n", pk);
+
+  switch (pk) {
+  case 2:
+    printf("h(n)= 2 x Num / Den\n");
+    break;
+  case 3:
+    printf("h(n)= 2 x 3 x Num / Den\n");
+    break;
+  case 5:
+    printf("h(n)= 2 x 3 x 5 x Num / Den\n");
+    break;
+  default:
+    printf("h(n)= 2 x 3 x ... x %ld x Num / Den \n", pk);
+  }
+		
   //printf("with\n");
   //printf("\n");
   printf("Num = ");
@@ -345,6 +371,7 @@ void Gdelta::show_value() {
  else
    {
      Nk_compute(Nk, pk);
+     //gmp_printf("Nk= %.Zd\n",Nk);
      mpz_class numer=Gprov.get_num();
      mpz_class denom=Gprov.get_den();
      mpz_div(Nk, Nk, denom.get_mpz_t());

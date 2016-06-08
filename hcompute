@@ -6,6 +6,7 @@ then
     echo $1 $pksk | xargs src/Gcompute
 else
     pksk=$(skcompute $1)
+    #echo $pksk
     echo "-f" $pksk | xargs src/Gcompute
 fi	
 

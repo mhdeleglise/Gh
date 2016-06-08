@@ -7,6 +7,14 @@
 
 void Nk_compute(mpz_t Nk, long pk) {
   mpz_t res;
+  if (pk==2) {
+    mpz_set_si(Nk,2);
+    return;
+  }
+  if (pk==3) {
+    mpz_set_si(Nk,6);
+    return;
+  }
   mpz_init_set_si(res,6);
   presieved_primes::init_prime_table(1000000,2);
   prime_generator pg(10000000);

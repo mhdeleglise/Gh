@@ -21,13 +21,15 @@ int main(int argc, char * argv[]) {
     index=1;
   
   long64 x=atol(argv[index]);
+  //cout << "Adjust x= " << x << endl;
   mpz_t deltax;
   mpz_init(deltax);
   mpz_set_str(deltax, argv[index+1],10);
+  //gmp_printf("delta= %Zd\n",deltax);
   long64 maxprime = min(sqrt((double)(2*x))+10000, 2000000000.0);
   long64 p=0;
   presieved_primes::init_prime_table(maxprime,2);
-  prime_generator pg(100000000, x);
+  prime_generator pg(10000000, x);
 
   mpz_t sum, delta;
   mpz_init(sum);

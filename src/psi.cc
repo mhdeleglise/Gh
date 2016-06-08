@@ -33,6 +33,9 @@ mpfr_t _S_3;
 mpfr_t _S_4;
 mpfr_t _lambda;
 
+void compute_small_psi(mpfr_t psi_value, long x);
+
+
 void init_mpfr_vars() {
   mpfr_init_set_si(_tmp1,0, MPFR_RNDN);
   mpfr_init_set_si(_big_sumlog,0, MPFR_RNDN);
@@ -413,6 +416,10 @@ void compute_lambda(long n) {
 
 void compute_psi(mpfr_t psi_value, long x)
 {
+  if (x <= 101) {
+    compute_small_psi(psi_value,x);
+    return;
+    }
   long  x3 = root(x,3);
   long   u = x3;
   long   l = u*8;
@@ -547,4 +554,26 @@ void compute_psi(mpfr_t psi_value, long x)
   delete[] _p;
   delete[] _xm;
   delete[] _sqrt_xm;
+}
+
+const int small_primes[26]={2,3,5,7,11,13,17,19,23,29,31,37,41,43, 47,53,59,61,67,71,73,79,83,89,97,101};
+
+void compute_small_psi(mpfr_t psi_value, long x) {
+  //cout << "In compute small psi x= " << x << endl;
+  mpfr_t pmpfr, logp;
+  mpfr_inits2(128,pmpfr,logp, (mpfr_ptr) 0);
+  mpfr_set_si(psi_value,0,MPFR_RNDN);
+  int i=0;
+  long p=small_primes[i++];
+  while (p <= x) {
+    mpfr_set_si(pmpfr,p, MPFR_RNDN);
+    mpfr_log(logp, pmpfr, MPFR_RNDN);
+    long q=p;
+    while (q <= x) {
+      mpfr_add(psi_value, psi_value, logp, MPFR_RNDN);
+      q *= p;
+    }
+    p=small_primes[i++];
+  }
+  mpfr_clears(pmpfr, logp, (mpfr_ptr) 0);
 }
