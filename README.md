@@ -40,7 +40,7 @@ There exists a small integer s and primes q<sub>j</sub> and Q<sub>j</sub> such t
   Q<sub>s</sub>) / (q<sub>1</sub>  q<sub>2</sub>  ...  q<sub>s</sub>).
 
 More over, all the Q<sub>j</sub>, and all of the q<sub>j</sub>, 
-__except perhaps q<sub>1</sub>__, are close to p<sub>k</sub>.  
+**except perhaps q<sub>1</sub>**, are close to p<sub>k</sub>.  
 
 For n=12 and N=10^9, we have, respectively,
 
