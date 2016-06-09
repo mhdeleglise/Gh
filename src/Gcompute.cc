@@ -36,9 +36,10 @@ int main(int argc, char* argv[]){
   //printf("p= %ld   m=%ld\n",p,m);
   Gdelta res(p,m,maxdinit,verbose);
 
-  if (Factors)
+  if (Factors) {
     res.show_factors();
-
+    }
+  
   if (Log)
     res.showLog();
   if (Pplus)

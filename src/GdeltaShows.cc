@@ -67,7 +67,7 @@ void Gdelta::show_factors() {
     }
 
   if (cnte==1) {
-    gmp_printf(" / %.Zd \n\n",denom.get_mpz_t());
+    gmp_printf(" / %.Zd\n",denom.get_mpz_t());
     return;
   }
   printf(" / ");  
@@ -85,7 +85,7 @@ void Gdelta::show_factors() {
       gmp_printf("%.Zd\n",denom.get_mpz_t());
     }
   }
-  cout << endl;
+  printf("\n");
 }
 
 
