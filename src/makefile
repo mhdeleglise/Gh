@@ -16,8 +16,8 @@ SOURCES= erreur.cc primes1000000.cc Gcomb.cc Gdelta.cc
 COMMANDS= testGcomb testGdelta adjust_sx_delta factorG invli2 sublong\
 	Gcompute left_prime
 
-OBJ = erreur.o Gcomb.o Gdelta.o limpfr.o prev_prime.o GdeltaLog.o Nk.o\
-	psi.o psi_theta_diff.o  theta.o
+OBJ = erreur.o Gcomb.o Gdelta.o limpfr.o prev_prime.o Nk.o\
+	psi.o psi_theta_diff.o  theta.o GdeltaShows.o
 
 CXX =  g++ -I $(INC) $(LFLAGS) $(CFLAGS)
 
