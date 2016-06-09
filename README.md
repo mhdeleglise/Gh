@@ -71,7 +71,12 @@ Options:
   -v, print h(n) if it has no more than 100000 digits.
 ```
 
-Caution: computing log h(n) is hard. The essential part of this
+Caution: computing log h(n) is hard. The computation needs a few
+seconds for n=10^20, and each time you multiply n by 10 we
+approximatively double the time of computation of log(h(n)).
+
+
+The essential part of this
 computation is to get the value theta(p<sub>k</sub>).
 Theta function  is defined by theta(x) = sum{p prime, p<=x, | log p}.
 The Meissel method doesn't work for this sum. In (4) an

@@ -278,44 +278,20 @@ void Gdelta::show_factors() {
   mpz_class numer=Gprov.get_num();
   mpz_class denom=Gprov.get_den();
 
+  printf("2--%ld",pk);
   if (Gprov==1)
     {
-      switch (pk) {
-      case 2:
-	printf("h(n)= %d\n",2);
-	break;
-      case 3:
-	printf("h(n)= 2 x 3\n");
-	break;
-      case 5:
-	printf("h(n)= 2 x 3 X 5\n");
-	break;
-      default:
-	printf("h(n) = 2 x 3 x ..... x %ld\n",pk);
-      }
+      printf("\n");
       return;
     }
   
   //  printf("h(n)= N x Num / Den where \n");
   //  printf("N is the product of all the primes not greater then %ld \n", pk);
 
-  switch (pk) {
-  case 2:
-    printf("h(n)= 2 x Num / Den\n");
-    break;
-  case 3:
-    printf("h(n)= 2 x 3 x Num / Den\n");
-    break;
-  case 5:
-    printf("h(n)= 2 x 3 x 5 x Num / Den\n");
-    break;
-  default:
-    printf("h(n)= 2 x 3 x ... x %ld x Num / Den \n", pk);
-  }
 		
   //printf("with\n");
   //printf("\n");
-  printf("Num = ");
+  printf("    ");
   while (numer > 1)
     {
       mpz_nextprime(q,q);
@@ -326,7 +302,7 @@ void Gdelta::show_factors() {
       cnte+=1;
       if (cnte==1)
 	if (numer==1) {
-	  gmp_printf("%.Zd\n", q);
+	  gmp_printf("%.Zd ", q);
 	  break;
 	 }
 	else {
@@ -336,15 +312,15 @@ void Gdelta::show_factors() {
 	if (numer > 1)
 	  gmp_printf("%.Zd x ", q);
 	else
-	  gmp_printf("%.Zd\n", q);
+	  gmp_printf("%.Zd ", q);
       }
     }
 
   if (cnte==1) {
-    gmp_printf("Den = %.Zd\n\n",denom.get_mpz_t());
+    gmp_printf(" / %.Zd \n\n",denom.get_mpz_t());
     return;
   }
-  printf("Den = ");  
+  printf(" / ");  
   int i=0;
   while (i < cnte-1) {
     while (!mpz_divisible_p(denom.get_mpz_t(), q)) {
@@ -353,9 +329,9 @@ void Gdelta::show_factors() {
     i+=1;
     mpz_divexact(denom.get_mpz_t(), denom.get_mpz_t(), q);
     if (i < cnte-1)
-      gmp_printf("%.Zd x ",q);
+      gmp_printf("%.Zd / ",q);
     else {
-      gmp_printf("%.Zd x ",q);
+      gmp_printf("%.Zd / ",q);
       gmp_printf("%.Zd\n",denom.get_mpz_t());
     }
   }
