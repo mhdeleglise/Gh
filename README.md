@@ -112,7 +112,7 @@ Build instructions (Unix-like OSes)
 You need to have installed a C++ compiler and GNU make.
 It works on PC linux machines and on my macbook pro.
 
-Download this repository, and buil it using
+Download this repository, and build it using
 
 ```
 $ ./make
