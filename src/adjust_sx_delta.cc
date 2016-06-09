@@ -21,11 +21,9 @@ int main(int argc, char * argv[]) {
     index=1;
   
   long64 x=atol(argv[index]);
-  cout << "Adjust x= " << x << endl;
   mpz_t deltax;
   mpz_init(deltax);
   mpz_set_str(deltax, argv[index+1],10);
-  gmp_printf("x= %ld delta= %Zd\n",x,deltax);
   long64 maxprime = min(sqrt((double)(2*x))+10000, 2000000000.0);
   long64 p=0;
   presieved_primes::init_prime_table(maxprime,2);
@@ -36,17 +34,14 @@ int main(int argc, char * argv[]) {
   mpz_init(delta);
   long64  cnte=1;
   long pj1=pg.next_prime(x);
-  cout <<  "pj1= " << pj1 << endl;
-  gmp_printf("x= %ld   deltax= %.Zd\n",x,deltax);
   if (mpz_cmp_si(deltax, 0) >= 0) {
-    long pj=0;
+    long pj=x;
     while (mpz_cmp_si(deltax, pj1) >= 0) {
       mpz_sub_ui(deltax, deltax, pj1);
       cnte+=1;
       pj=pj1;
       pj1=pg.next_prime();
     }
-    //gmp_printf("cnte= %d pk= %ld deltax= %.Zd\n",cnte,pj,deltax);
     if (verbose)
       gmp_printf("cnte= %d pk= %ld deltax= %.Zd\n",cnte,pj,deltax);
     else
