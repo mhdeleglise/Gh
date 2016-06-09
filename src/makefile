@@ -31,6 +31,7 @@ all: $(OBJ) $(COMMANDS)
 
 left_prime:
 	$(CXX) -o left_prime left_prime.cc -lgmp
+	cp left_prime ../left_prime
 
 testGcomb:	$(OBJ) testGcomb.cc	
 	$(CXX) $(CFLAGS) -o  testGcomb  testGcomb.cc $(LPATH) $(OBJ) $(LIBS) $(LIBDIR)

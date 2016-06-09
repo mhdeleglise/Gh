@@ -6,8 +6,11 @@ done
 
 shift $(( OPTIND - 1 ));
 
-
 # The trivial cases first
+# Caused  by the presieve of small primes,
+# the prime generator pg used in adjust_sx_delta
+# doesn't work around small primes less than 7
+
 if [ $1 == 2 ]; then
     echo 2 0
     exit 0
@@ -43,5 +46,5 @@ if [ $VERBOSE ]; then
     echo delta= $n - $sx = $delta 
 fi
 
-echo $(src/left_prime $x)  $delta
+echo $(left_prime $x)  $delta
 
