@@ -13,7 +13,8 @@ else
 endif
 
 SOURCES= erreur.cc primes1000000.cc Gcomb.cc Gdelta.cc
-COMMANDS= testGcomb testGdelta adjust_sx_delta factorG invli2 sublong Gcompute
+COMMANDS= testGcomb testGdelta adjust_sx_delta factorG invli2 sublong\
+	Gcompute left_prime
 
 OBJ = erreur.o Gcomb.o Gdelta.o limpfr.o prev_prime.o GdeltaLog.o Nk.o\
 	psi.o psi_theta_diff.o  theta.o
@@ -28,6 +29,8 @@ all: $(OBJ) $(COMMANDS)
 	echo $(CFLAGS)
 	echo $(LPATH)
 
+left_prime:
+	$(CXX) -o left_prime left_prime.cc -lgmp
 
 testGcomb:	$(OBJ) testGcomb.cc	
 	$(CXX) $(CFLAGS) -o  testGcomb  testGcomb.cc $(LPATH) $(OBJ) $(LIBS) $(LIBDIR)

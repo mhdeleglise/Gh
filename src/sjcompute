@@ -43,5 +43,5 @@ if [ $VERBOSE ]; then
     echo delta= $n - $sx = $delta 
 fi
 
-echo $(src/previousprime $x)  $delta
+echo $(src/left_prime $x)  $delta
 
