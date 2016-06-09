@@ -39,7 +39,7 @@ int main(int argc, char * argv[]) {
   cout <<  "pj1= " << pj1 << endl;
   gmp_printf("x= %ld   deltax= %.Zd\n",x,deltax);
   if (mpz_cmp_si(deltax, 0) >= 0) {
-    long pj;
+    long pj=0;
     while (mpz_cmp_si(deltax, pj1) >= 0) {
       mpz_sub_ui(deltax, deltax, pj1);
       cnte+=1;
