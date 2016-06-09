@@ -36,7 +36,7 @@ This rational number  G(p,m)  has the following property:
 There exists a small integer s and primes q<sub>j</sub> and Q<sub>j</sub> such that
 - q<sub>1</sub> q<sub>2</sub> < ... < q<sub>s</sub> <= p<sub>k</sub>
    < Q<sub>1</sub> < Q<sub>2</sub> < ... < Q<sub>s</sub>
-- G(p<sub>k</sub>, d<sub>k</sub>) = (Q<sub>1</sub>  Q<sub>2</sub>  ...
+- G(p, m) = (Q<sub>1</sub>  Q<sub>2</sub>  ...
   Q<sub>s</sub>) / (q<sub>1</sub>  q<sub>2</sub>  ...  q<sub>s</sub>).
 
 More over, all the Q<sub>j</sub>, and all of the q<sub>j</sub>, 
@@ -44,16 +44,17 @@ More over, all the Q<sub>j</sub>, and all of the q<sub>j</sub>,
 
 For n=12 and N=10^9, we have, respectively,
 
-|    n  | p<sub>k</sub> |  q<sub>1</sub>... q<sub>s</sub> | Q<sub>1</sub>... Q<sub>s</sub> |G( p<sub>k</sub> , d<sub>k</sub> ) |
-| ---------: | ---------: | ---------: | ---------: | :--------: |
-|12  |  5 | 5 | 7 | 7/5|
-|10<sup>9</sup> | 151,057 | 17,881 | 151,091|  151,091 / 17,881|
+|    n  | p<sub>k</sub> |  d<sub>k</sub> | q<sub>1</sub>... q<sub>s</sub> | Q<sub>1</sub>... Q<sub>s</sub> |G( p<sub>k</sub> , d<sub>k</sub> ) |
+| ---------:  | ---------: |  ---------: | ---------: | ---------: | :--------: |
+|12  |  5 | 2 | 5 | 7 | 7/5|
+|10<sup>9</sup> | 151,057 | 133,251 |17,881 | 151,091|  151,091 / 17,881|
 
 
-- For n=12, N<sub>k</sub>=2 x 3 + 5 = 30,  G(5,2) = 7/5 and h(n) = 30 x 7 /5 = 42.
+- For n=12, p<sub>k</sub> = 5, N<sub>k</sub>=2 x 3 x 5 = 30,  d<sub>k</sub>=2,  G(5,2) = 7/5 and h(n) = 30 x 7 /5 = 42.
 
-- For n=10^9, N<sub>k</sub> is the product of all the primes uo to 151,057. Its decimal
-expansion has 65,449 digits, while the expansion of h(n) has 65,450 digits.
+- For n=10^9, p<sub>k</sub>= 151,057,  d<sub>k</sub>= 133,251,
+N<sub>k</sub> is the product of all the primes up to 151,057.<br>
+Its decimal expansion has 65,449 digits, while the expansion of h(n) has 65,450 digits.<br>
 But the fraction h(n)/N<sub>k</sub>=G(151,057, 133,215) is reduced to 151,091/17,881.
 
 
@@ -74,8 +75,6 @@ Options:
 Caution: computing log h(n) is hard. The computation needs a few
 seconds for n=10^20, and each time you multiply n by 10 we
 approximatively double the time of computation of log(h(n)).
-
-
 The essential part of this
 computation is to get the value theta(p<sub>k</sub>).
 Theta function  is defined by theta(x) = sum{p prime, p<=x, | log p}.
@@ -135,6 +134,6 @@ Bull. Proc. of the Steklov Institute 17 (2013), 82-112)
 [Landau's function  for one million billions](https://eudml.org/doc/10854)
 , J. Theor. Nombres Bordeaux. 20 (2008), no. 3, 625-671.
 
-4. M. Deleglise, J. Rivat, Computing Psi(x), 
-Math. Comp. 67 (1998), no. 224, 1691-1696.
-[AMS](http://www.ams.org/journals/mcom/1998-67-224/S0025-5718-98-00977-6/).
+4. M. Deleglise, J. Rivat, [Computing Psi(x)](http://www.ams.org/journals/mcom/1998-67-224/S0025-5718-98-00977-6/).
+Math. Comp. 67 (1998), no. 224, 1691-1696].
+
