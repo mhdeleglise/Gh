@@ -112,9 +112,7 @@ Build instructions (Unix-like OSes)
 You need to have installed a C++ compiler and GNU make.
 It works on PC linux machines and on my macbook pro.
 
-Download
-[Gh.tar.gz](https://dl.bintray.com/mhdeleglise/Gh/Gh.tar.gz)
-and build it using:
+Download this repository, and buil it using
 
 ```
 $ ./make
