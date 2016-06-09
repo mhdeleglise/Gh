@@ -3,8 +3,8 @@
 #include"theta.h"
 
 void Gdelta::showLog(int base) {
-  printf("Computing log h(n), it may be long .. a few seconds for n=10^20, \n");
-  printf("and the computaion time for h(10n) is twice the time of computation of h(n)\n");
+  //printf("Computing log h(n), it may be long .. a few seconds for n=10^20, \n");
+  //printf("and the computaion time for h(10n) is twice the time of computation of h(n)\n");
   mpz_class num = Gprov.get_num();
   mpz_class den = Gprov.get_den();
   mpfr_set_default_prec(128);
