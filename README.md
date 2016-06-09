@@ -73,7 +73,7 @@ Options:
 ```
 
 Caution: computing log h(n) is hard. The computation needs a few
-seconds for n=10^20, and each time you multiply n by 10 we
+seconds for n=10^20, and, each time you multiply n by 10, you
 approximatively double the time of computation of log(h(n)).
 The essential part of this
 computation is to get the value theta(p<sub>k</sub>).
