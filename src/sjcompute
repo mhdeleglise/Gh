@@ -6,6 +6,26 @@ done
 
 shift $(( OPTIND - 1 ));
 
+
+# The trivial cases first
+if [ $1 == 2 ]; then
+    echo 2 0
+    exit 0
+fi
+
+if [ $1 == 3 ]; then
+    echo 2 1
+    exit 0
+fi
+
+if [ $1 == 5 ]; then
+    echo 3 0
+    exit 0
+fi
+
+
+# Here it is
+
 PRIMESUM=~deleglis/primesum-0.2/primesum
 n=$1
 x=$(invli2 $n 1e_12 | cut -f1 -d".")
@@ -23,5 +43,5 @@ if [ $VERBOSE ]; then
     echo delta= $n - $sx = $delta 
 fi
 
-echo $x $delta
+echo $(src/previousprime $x)  $delta
 

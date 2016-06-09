@@ -285,10 +285,10 @@ void Gdelta::show_factors() {
 	printf("h(n)= %d\n",2);
 	break;
       case 3:
-	printf("h(n)= %d\n",6);
+	printf("h(n)= 2 x 3\n");
 	break;
       case 5:
-	printf("h(n)= %d\n",30);
+	printf("h(n)= 2 x 3 X 5\n");
 	break;
       default:
 	printf("h(n) = 2 x 3 x ..... x %ld\n",pk);
@@ -376,6 +376,6 @@ void Gdelta::show_value() {
      mpz_class denom=Gprov.get_den();
      mpz_div(Nk, Nk, denom.get_mpz_t());
      mpz_mul(Nk, Nk, numer.get_mpz_t());
-     gmp_printf("h(n)=%.Zd\n",Nk);
+     gmp_printf("%.Zd\n",Nk);
    }
 }

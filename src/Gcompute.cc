@@ -32,7 +32,9 @@ int main(int argc, char* argv[]){
   }
   
   long p=atol(argv[optind]);
-  long m=atol(argv[optind+1]);Gdelta res(p,m,maxdinit,verbose);
+  long m=atol(argv[optind+1]);
+  //printf("p= %ld   m=%ld\n",p,m);
+  Gdelta res(p,m,maxdinit,verbose);
 
   if (Factors)
     res.show_factors();
