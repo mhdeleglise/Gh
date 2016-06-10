@@ -61,8 +61,7 @@ For n=12, 213, 10^9,  we have, respectively,
 - For n=213, G(37, 16) = (41 x 43 ) / (37 x 31) , thus h(n) = [ 2-37 ]  x 41 x 43 / 37 / 31;
 
 - For n=10^9, the decimal expansion of h(n) has 65,450 digits. However h(n) is
-concisely described by its factorization [ 2-151,057] x 151,091 /
-17,881.
+concisely described by its factorization [2-151,057]x151,091/17,881.
 
 For n = 10^35, the factorization of h(n) is [2-2898434150644708999] x 2898434150644709023  / 1012352338532863519.
 
