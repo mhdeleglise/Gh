@@ -65,7 +65,7 @@ concisely described by its factorization
 
 h(n)= [2-151,057] x 151,091 / 17,881.
 
-For n = 10^35, the factorization of h(n) is [2-2898434150644708999] x 2898434150644709023  / 1012352338532863519.
+For n = 10^35, h(n) is [2-2898434150644708999] x 2898434150644709023  / 1012352338532863519.
 
 But is this an effective description ? The number of primes up to
 2898434150644708999 is 69,866,494,635,191,041.  Even If we were able
