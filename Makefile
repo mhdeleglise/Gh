@@ -4,3 +4,4 @@ all:
 
 clean:
 	cd src && $(MAKE) clean
+	cd sieve2015 && $(MAKE) clean
