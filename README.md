@@ -9,7 +9,7 @@ The h function is rapidly increasing, h(n) is an integer whose
 number of digits is about 0.43 sqrt(n log n), and it is impossible
 to write the decimal expansion of h(n) for moderate values of n.
 
-Nethertheless it is possible to describe the factorization of h(n).
+However it is possible to describe the factorization of h(n).
 
 ### The factorization of h(n)
 
