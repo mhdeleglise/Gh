@@ -21,8 +21,8 @@ template<class btable, class longint> class sieve_by_slice:
     longint window_end;
     long64 window_size;
     
-    long64 index_first_prime;
-    long64 index_last_prime;
+    long64 left_index;
+    long64 right_index;
     void create(int k, int l, long64 window_size, longint startx, int presieve_base, sieve_type t);
     sieve_by_slice() {};
     sieve_by_slice(long64 window_size, longint window_first, sieve_type t) {

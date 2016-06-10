@@ -21,7 +21,7 @@ public:
   
   void display() {
     cout << "Prime generator of size " << sieve_by_slice<bit_table, long64>::window_size\
-	 << ".   Primes will start from = " << sieve_by_slice::get_integer(index_first_prime) << endl;
+	 << ".   Primes will start from = " << sieve_by_slice::get_integer(left_index) << endl;
     cout << "window_start= " << sieve_by_slice::window_start << endl;
     sieve_by_slice::display();
   }

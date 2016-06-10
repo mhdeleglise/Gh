@@ -221,8 +221,8 @@ sieve_by_slice<btable, longint>::eratosthenes()
   }
   // cout << "\nTous les sieves sont faits. Faut il réinitialiser des compteurs\n";
   btable::init_counters();
-  index_first_prime = 0;
-  index_last_prime = btable::get_bit_size();
+  left_index = 0;
+  right_index = btable::get_bit_size();
 #ifdef DEBUG_SV
   cout << "OUT ERATOS\n";
 #endif
@@ -231,13 +231,13 @@ sieve_by_slice<btable, longint>::eratosthenes()
 template<class btable, class longint> longint
 sieve_by_slice<btable, longint>::get_first_prime()
 {
-  index_first_prime=0;
+  left_index=0;
   for (;;)
     {
-      while(++index_first_prime < btable::get_bit_size())
+      while(++left_index < btable::get_bit_size())
 	{
-	  if (btable::get_bit(index_first_prime))
-	    return get_integer(index_first_prime);
+	  if (btable::get_bit(left_index))
+	    return get_integer(left_index);
 	}
       shift_window_forward();
     }
@@ -246,7 +246,7 @@ sieve_by_slice<btable, longint>::get_first_prime()
 template<class btable, class longint> longint
 sieve_by_slice<btable, longint>::get_next_prime()
 {
-  //cout << "In get_next_prime:  index_first_prime = " << index_first_prime << "    image " << get_integer(index_first_prime) << endl;
+  //cout << "In get_next_prime:  left_index = " << left_index << "    image " << get_integer(left_index) << endl;
   if (sieve_t == NO_SIEVE)
     {
       cout << "sieve_by_slice de type NO_SIEVE\n";
@@ -255,11 +255,11 @@ sieve_by_slice<btable, longint>::get_next_prime()
     }
   for (;;)
     {
-      while(++index_first_prime < btable::get_bit_size())
+      while(++left_index < btable::get_bit_size())
 	{
-	  //cout << "index_first_prime = " << index_first_prime << "    image " << get_integer(index_first_prime) << endl;
-	  if (btable::get_bit(index_first_prime))
-	    return get_integer(index_first_prime);
+	  //cout << "left_index = " << left_index << "    image " << get_integer(left_index) << endl;
+	  if (btable::get_bit(left_index))
+	    return get_integer(left_index);
 	  //else
 	    //cout << "not prime " << endl;
 	}
@@ -273,10 +273,10 @@ sieve_by_slice<btable, longint>::get_next_prime_without_shifting()
 {
   for (;;)
     {
-      while(++index_first_prime < btable::get_bit_size())
+      while(++left_index < btable::get_bit_size())
 	{
-	  if (btable::get_bit(index_first_prime))
-	    return get_integer(index_first_prime);
+	  if (btable::get_bit(left_index))
+	    return get_integer(left_index);
 	}
       return 0;
     }
@@ -287,16 +287,16 @@ sieve_by_slice<btable, longint>::get_previous_prime()
 {
   do
     {
-      while (index_last_prime--)
+      while (right_index--)
 	{
-	  if (btable::get_bit(index_last_prime))
-	    return get_integer(index_last_prime);
+	  if (btable::get_bit(right_index))
+	    return get_integer(right_index);
 	}
       if (window_start) 
 	{
 	  shift_window_backward();
 	}
-    } while (index_last_prime);
+    } while (right_index);
   return 0;
 }
 
@@ -304,7 +304,7 @@ template<class btable, class longint> longint
 sieve_by_slice<btable, longint>::get_previous_prime(longint x)
 {
   set_around(x);
-  index_last_prime = (int)lower_index64(x - window_start)+1;
+  right_index = (int)lower_index64(x - window_start)+1;
   return get_previous_prime();
 }
 
@@ -312,22 +312,22 @@ template<class btable, class longint> longint
 sieve_by_slice<btable, longint>::get_next_prime(longint x)
 {
   set_around(x);
-  index_first_prime = (int)lower_index64(x - window_start);
+  left_index = (int)lower_index64(x - window_start);
   return get_next_prime();
 }
 
 template<class btable, class longint> void sieve_by_slice<btable, longint>::init_primes(longint x)
 {
   set_around(x);
-  index_first_prime = lower_index64(x - window_start);
-  //index_first_prime = lower_index64(x - window_start)+1;
+  left_index = lower_index64(x - window_start);
+  //left_index = lower_index64(x - window_start)+1;
   //cout << "init_primes x= " << x << endl;
-  //cout << "index_first_prime set to " << index_first_prime  << "   d'image " << get_integer(index_first_prime) << endl;
+  //cout << "left_index set to " << left_index  << "   d'image " << get_integer(left_index) << endl;
   //cout << "window_start= " << window_start << endl;
-  if (get_integer(index_first_prime) == x) {
-    index_first_prime -= 1;
+  if (get_integer(left_index) == x) {
+    left_index -= 1;
   }
-  //cout << "Init primes put Index_first_prime  to " << index_first_prime << "  d'image " <<  get_integer(index_first_prime) << endl;
+  //cout << "Init primes put left_index  to " << left_index << "  d'image " <<  get_integer(left_index) << endl;
 }
 
 template<class btable, class longint> longint

@@ -152,8 +152,8 @@ sieve_slice6<btable, longint>::eratosthenes()
 
   // cout << "\nTous les sieves sont faits. Faut il réinitialiser des compteurs\n";
   btable::init_counters();
-  index_first_prime = 0;
-  index_last_prime = btable::get_bit_size();
+  left_index = 0;
+  right_index = btable::get_bit_size();
 #ifdef DEBUG_SV
   cout << "OUT ERATOS\n";
 #endif
@@ -234,13 +234,13 @@ sieve_slice6<btable, longint>::display_counts() {
 template<class btable, class longint> longint
 sieve_slice6<btable, longint>::get_first_prime()
 {
-  index_first_prime=0;
+  left_index=0;
   for (;;)
     {
-      while(++index_first_prime < btable::get_bit_size())
+      while(++left_index < btable::get_bit_size())
 	{
-	  if (btable::get_bit(index_first_prime))
-	    return get_integer(index_first_prime);
+	  if (btable::get_bit(left_index))
+	    return get_integer(left_index);
 	}
       shift_window_forward();
     }
@@ -257,12 +257,12 @@ sieve_slice6<btable, longint>::get_next_prime()
     }
   for (;;)
     {
-      //cout << "index first prime= " << index_first_prime << endl;
-      while(++index_first_prime < btable::get_bit_size())
+      //cout << "index first prime= " << left_index << endl;
+      while(++left_index < btable::get_bit_size())
 	{
-	  //cout << "index first prime= " << index_first_prime << endl;	  	  
-	  if (btable::get_bit(index_first_prime))
-	    return window_first+get_integer(index_first_prime);
+	  //cout << "index first prime= " << left_index << endl;	  	  
+	  if (btable::get_bit(left_index))
+	    return window_first+get_integer(left_index);
 	}
       shift_window_forward();
     }
@@ -273,10 +273,10 @@ sieve_slice6<btable, longint>::get_next_prime_without_shifting()
 {
   for (;;)
     {
-      while(++index_first_prime < btable::get_bit_size())
+      while(++left_index < btable::get_bit_size())
 	{
-	  if (btable::get_bit(index_first_prime))
-	    return get_integer(index_first_prime);
+	  if (btable::get_bit(left_index))
+	    return get_integer(left_index);
 	}
       return 0;
     }
@@ -287,35 +287,35 @@ sieve_slice6<btable, longint>::get_previous_prime()
 {
   do
     {
-      while (index_last_prime--)
+      while (right_index--)
 	{
-	  if (btable::get_bit(index_last_prime))
-	    return window_first + get_integer(index_last_prime);
+	  if (btable::get_bit(right_index))
+	    return window_first + get_integer(right_index);
 	}
       if (window_first) 
 	{
 	  shift_window_backward();
 	}
-    } while (index_last_prime);
+    } while (right_index);
   return 0;
 }
 
 template<class btable, class longint> longint
 sieve_slice6<btable, longint>::get_previous_prime(longint x)
 {
-  index_last_prime = offset(x - window_first) + 1;
+  right_index = offset(x - window_first) + 1;
   return get_previous_prime();
 }
 
 template<class btable, class longint> void
 sieve_slice6<btable, longint>::init_primes(longint x)
 {
-  // index_first_prime = 1+offset(x - window_first); remplacé par
+  // left_index = 1+offset(x - window_first); remplacé par
   cout << "In init_primes x= " << x << "   window_first= " << window_first << endl;
-  index_first_prime = offset(x - window_first);
-  cout << "index_first_prime= " << index_first_prime << endl;
-  if (get_integer(index_first_prime) == x) {
-    index_first_prime -= 1;
+  left_index = offset(x - window_first);
+  cout << "left_index= " << left_index << endl;
+  if (get_integer(left_index) == x) {
+    left_index -= 1;
   }
 }
 

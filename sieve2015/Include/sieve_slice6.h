@@ -17,8 +17,8 @@ template<class btable, class longint> class sieve_slice6:
     longint last_total;
     long64 window_size;
     
-    long64 index_first_prime;
-    long64 index_last_prime;
+    long64 left_index;
+    long64 right_index;
     sieve_slice6() {};
     sieve_slice6(long64 window_size, longint window_first, sieve_type t) {
       create(window_size, window_first, t);
