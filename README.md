@@ -32,7 +32,10 @@ h(n) **is rather close to N<sub>k</sub>**.
 More precisely, h(n) may be written as a product
 h(n) = N<sub>k</sub>  G(p<sub>k</sub>, d<sub>k</sub>)
 where  G(p,m) is a rational number which is defined in
-[Landau's function for one million billions] (https://eudml.org/doc/10854).
+[Landau's function for one million billions](https://eudml.org/doc/10854).
+An efficient algorithm computing G(p,m) is also
+given in this artcle.
+
 This rational number  G(p,m)  has the following property:
 
 There exists a small integer s and primes q<sub>j</sub> and Q<sub>j</sub> such that
@@ -120,7 +123,7 @@ divide by 10 or more the time of computation on a computer with a large
 number of cores. The command primesum must be put  in the directory where you download Gh, or
 in one of the directories figuring in the value of your PATH environment variable.
 
-#Build instructions (Unix-like OSes)
+# Build instructions (Unix-like OSes)
 -----------------------------------
 You need to have installed a C++ compiler and GNU make.
 It works on PC linux machines and on my macbook pro.
