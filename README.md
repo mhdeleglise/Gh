@@ -113,7 +113,7 @@ or to add all the primes less than x, without enumerating them, doing
 no more than O(x^(2/3)/log^2 x) elementary operations.
 
 Before using this repository you need to install on your computer
-an efficient  _primesum(x)_ function which adds the primeson up
+an efficient  _primesum(x)_ function which adds the primes up
 to x.
 
 You will find  a very efficient **primesum**  command on the repository
