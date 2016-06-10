@@ -60,8 +60,7 @@ For n=12, 213, 10^9,  we have, respectively,
 
 - For n=213, G(37, 16) = (41 x 43 ) / (37 x 31) , thus h(n) = [ 2-37 ]  x 41 x 43 / 37 / 31;
 
-- For n=10^9, the decimal expansion of N<sub>k</sub> has 65,449
-digits, while the expansion of h(n) has 65,450 digits. However h(n) is
+- For n=10^9, the decimal expansion of h(n) has 65,450 digits. However h(n) is
 concisely described by its factorization [ 2-151,057] x 151,091 /
 17,881.
 
