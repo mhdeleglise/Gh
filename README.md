@@ -58,7 +58,7 @@ For n=12, 213, 10^9,  we have, respectively,
 - For n=12, [2-5] =2 x 3 x 5,  p<sub>k</sub> = 5,  d<sub>k</sub> =
   2,  G(5,2) = 7/5 and h(n) = 2 x 3 x 5  x 7 /5  =42.
 
-- For n=213, G(37, 16) = (41 x 43 ) / (37 x 31) , thus h(n) = [ 2-37 ]  x 41 x 43 / 37 / 31;
+- For n=213, G(37, 16) = (41 x 43 ) / (37 x 31) , thus h(n) = [ 2-37 ]  x 41 x 43 / 37 / 31 = 11,406,069,164,490.
 
 - For n=10^9, the decimal expansion of h(n) has 65,450 digits. However h(n) is
 concisely described by its factorization
