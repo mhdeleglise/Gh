@@ -15,16 +15,18 @@ Nethertheless it is possible to describe the factorization of h(n).
 
 Let n be a positive integer. We define p<sub>k</sub> as
 the largest prime p such that s<sub>k</sub>= 2 + 3 + .... + p<sub>k</sub> <= n,
-and we denote dk  the difference n - s<sub>k</sub>.
+and we denote d<sub>k</sub>  the difference n - s<sub>k</sub>.
 
-For example, for n=12 and N=10^9, we have, respectively,
+For example, for n=12, 213, 10^9, we have, respectively,
 
 | n  | p<sub>k</sub> |  s<sub>k</sub>  | d<sub>k</sub> |
 | ---------: | ---------: | ---------: | --------: |
-| 12  | 5 | 10  | 2 |
+| 12   | 5    | 10    | 2 |
+| 213 | 37  | 197  | 16 |
 | 10^9 | 151,057  | 24,739,512,092,254,535 | 133,215 |
 
-Let us define N<sub>k</sub> = 2 x 3 x .... x p<sub>k</sub>. The value
+Let us define N<sub>k</sub> = 2 x 3 x .... x p<sub>k</sub>, that we
+will write write more concisely [ 2-p<sub>k</sub> ]. The value
 h(n) **is rather close to N<sub>k</sub>**.
 
 More precisely, h(n) may be written as a product
@@ -34,7 +36,7 @@ where  G(p,m) is a rational number which is defined in
 This rational number  G(p,m)  has the following property:
 
 There exists a small integer s and primes q<sub>j</sub> and Q<sub>j</sub> such that
-- q<sub>1</sub> q<sub>2</sub> < ... < q<sub>s</sub> <= p<sub>k</sub>
+- q<sub>1</sub> <  q<sub>2</sub> < ... < q<sub>s</sub> <= p<sub>k</sub>
    < Q<sub>1</sub> < Q<sub>2</sub> < ... < Q<sub>s</sub>
 - G(p, m) = (Q<sub>1</sub>  Q<sub>2</sub>  ...
   Q<sub>s</sub>) / (q<sub>1</sub>  q<sub>2</sub>  ...  q<sub>s</sub>).
@@ -42,20 +44,24 @@ There exists a small integer s and primes q<sub>j</sub> and Q<sub>j</sub> such t
 More over, all the Q<sub>j</sub>, and all of the q<sub>j</sub>, 
 **except perhaps q<sub>1</sub>**, are close to p<sub>k</sub>.  
 
-For n=12 and N=10^9, we have, respectively,
+For n=12 , 213, 10^9,  we have, respectively,
 
-|    n  | p<sub>k</sub> |  d<sub>k</sub> | q<sub>1</sub>... q<sub>s</sub> | Q<sub>1</sub>... Q<sub>s</sub> |G( p<sub>k</sub> , d<sub>k</sub> ) |
+|    n  | p<sub>k</sub> |  d<sub>k</sub> | q<sub>1</sub>... q<sub>s</sub> | Q<sub>1</sub>... Q<sub>s</sub> |G( p<sub>k</sub> , d<sub>k</sub> )
 | ---------:  | ---------: |  ---------: | ---------: | ---------: | :--------: |
-|12  |  5 | 2 | 5 | 7 | 7/5|
+|12   |  5  | 2   | 5 | 7 | 7/5|
+|213 | 37 | 16 | 31  37 | 41  43 | (41 x 43) / (31 x 37)|
 |10<sup>9</sup> | 151,057 | 133,251 |17,881 | 151,091|  151,091 / 17,881|
 
+- For n=12, [2-5] =2 x 3 x 5,  p<sub>k</sub> = 5,  d<sub>k</sub> =
+  2,  G(5,2) = 7/5 and h(n) = 2 x 3 x 5  x 7 /5  =42.
 
-- For n=12, p<sub>k</sub> = 5, N<sub>k</sub>=2 x 3 x 5 = 30,  d<sub>k</sub>=2,  G(5,2) = 7/5 and h(n) = 30 x 7 /5 = 42.
+- For n=213, G(37, 16) = (41 x 43 ) / (37 x 31) , thus h(n) = [ 2-37 ]  x 41 x 43 / 37 / 31;
 
-- For n=10^9, p<sub>k</sub>= 151,057,  d<sub>k</sub>= 133,251,
-N<sub>k</sub> is the product of all the primes up to 151,057.<br>
-Its decimal expansion has 65,449 digits, while the expansion of h(n) has 65,450 digits.<br>
-But the fraction h(n)/N<sub>k</sub>=G(151,057, 133,215) is reduced to 151,091/17,881.
+- For n=10^9, the
+decimal expansion of N<sub>k</sub> has 65,449 digits, while the
+expansion of h(n) has 65,450 digits. However h(n) is concisely
+described by its factorization [ 2-151,057] x 151,091 / 17,881.
+
 
 
 # Command-line  hcompute
@@ -77,7 +83,7 @@ seconds for n=10^20, and, each time you multiply n by 10, you
 approximatively double the time of computation of log(h(n)).
 The essential part of this
 computation is to get the value theta(p<sub>k</sub>).
-Theta function  is defined by theta(x) = sum{p prime, p<=x, | log p}.
+Theta function  is defined by theta(x) = sum{log p, for p prime, p<=x}.
 The Meissel method doesn't work for this sum. In (4) an
 algorithm computing theta(x) in time O(x^(2/3+epsilon) is given.
 It is used in this package.
@@ -85,7 +91,8 @@ It is used in this package.
 # Command-line skcompute
 ----------------------
 
-This repository gives you the skcompute function
+This repository gives you the skcompute function, which prints out the
+values p<sub>k</sub> an <sub>k</sub> associated to n.
 
 ```
 skcompute n
@@ -99,13 +106,13 @@ Before using this repository you need to install a  _primesum_
 function on your computer. This function computes the sum of
 primes upto x, doing  O(x^(2/3)/log^2 x) elemantary operations.
 
-You will find  a very good **primesum**  command on the repository
+You will find  a very efficient **primesum**  command on the repository
 [primesum](https://github.com/kimwalisch/primesum)
 of Kim Walisch. This implementation uses threads and this may easily
 divide by 10 or more the time of computation on a computer with a large
 number of cores.
-The command primesum must be in the directory where you download Gh, or
-must be in your $PATH.
+The command primesum must be put  in the directory where you download Gh, or
+in one of the directories figuring in the value of your PATH environment variable.
 
 Build instructions (Unix-like OSes)
 -----------------------------------
