@@ -44,7 +44,7 @@ There exists a small integer s and primes q<sub>j</sub> and Q<sub>j</sub> such t
 More over, all the Q<sub>j</sub>, and all of the q<sub>j</sub>, 
 **except perhaps q<sub>1</sub>**, are close to p<sub>k</sub>.  
 
-For n=12 , 213, 10^9,  we have, respectively,
+For n=12, 213, 10^9,  we have, respectively,
 
 |    n  | p<sub>k</sub> |  d<sub>k</sub> | q<sub>1</sub>... q<sub>s</sub> | Q<sub>1</sub>... Q<sub>s</sub> |G( p<sub>k</sub> , d<sub>k</sub> )
 | ---------:  | ---------: |  ---------: | ---------: | ---------: | :--------: |
