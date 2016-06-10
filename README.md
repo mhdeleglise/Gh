@@ -34,7 +34,7 @@ h(n) = N<sub>k</sub>  G(p<sub>k</sub>, d<sub>k</sub>)
 where  G(p,m) is a rational number which is defined in
 [Landau's function for one million billions](https://eudml.org/doc/10854).
 An efficient algorithm computing G(p,m) is also
-given in this artcle.
+given in this article.
 
 This rational number  G(p,m)  has the following property:
 
