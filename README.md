@@ -57,12 +57,17 @@ For n=12, 213, 10^9,  we have, respectively,
 
 - For n=213, G(37, 16) = (41 x 43 ) / (37 x 31) , thus h(n) = [ 2-37 ]  x 41 x 43 / 37 / 31;
 
-- For n=10^9, the
-decimal expansion of N<sub>k</sub> has 65,449 digits, while the
-expansion of h(n) has 65,450 digits. However h(n) is concisely
-described by its factorization [ 2-151,057] x 151,091 / 17,881.
+- For n=10^9, the decimal expansion of N<sub>k</sub> has 65,449
+digits, while the expansion of h(n) has 65,450 digits. However h(n) is
+concisely described by its factorization [ 2-151,057] x 151,091 /
+17,881.
 
+For n = 10^35, the factorization of h(n) is [2-2898434150644708999] x 2898434150644709023  / 1012352338532863519.
 
+But is this an effective description ? The number of primes up to
+2898434150644708999 is 69,866,494,635,191,041.  Even If we were able
+to enumerate the successives primes, one billion by second, it would
+need 808 days to enumerate all the factors of [2-2898434150644708999] .
 
 # Command-line  hcompute
 -------------------------------
@@ -90,7 +95,6 @@ It is used in this package.
 
 # Command-line skcompute
 ----------------------
-
 This repository gives you the skcompute function, which prints out the
 values p<sub>k</sub> an <sub>k</sub> associated to n.
 
@@ -99,22 +103,24 @@ skcompute n
 ```
 which prints the values of pk and sk corresponding to n, for n upto 10^35.
 
-
 # Prerequisites
+-----------------------------------
+It is amazing, but t is possible to count all the primes less than x,
+or to add all the primes less than x, without enumerating them, doing
+no more than O(x^(2/3)/log^2 x) elementary operations.
 
-Before using this repository you need to install a  _primesum_
-function on your computer. This function computes the sum of
-primes upto x, doing  O(x^(2/3)/log^2 x) elemantary operations.
+Before using this repository you need to install on your computer
+an efficient  _primesum(x)_ function which adds the primeson up
+to x.
 
 You will find  a very efficient **primesum**  command on the repository
 [primesum](https://github.com/kimwalisch/primesum)
 of Kim Walisch. This implementation uses threads and this may easily
 divide by 10 or more the time of computation on a computer with a large
-number of cores.
-The command primesum must be put  in the directory where you download Gh, or
+number of cores. The command primesum must be put  in the directory where you download Gh, or
 in one of the directories figuring in the value of your PATH environment variable.
 
-Build instructions (Unix-like OSes)
+#Build instructions (Unix-like OSes)
 -----------------------------------
 You need to have installed a C++ compiler and GNU make.
 It works on PC linux machines and on my macbook pro.
