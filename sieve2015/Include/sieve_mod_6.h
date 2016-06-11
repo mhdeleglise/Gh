@@ -31,8 +31,8 @@ template<class btable, class longint> class sieve_mod_6:
     longint last_total;
     longint image(long index) {return w_first + get_integer(index);}
     
-    long64 index_first_prime;
-    long64 index_last_prime;
+    long64 left_index;
+    long64 right_index;
 
     sieve_mod_6() {};
 
