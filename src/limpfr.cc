@@ -113,7 +113,6 @@ void li(mpfr_t res, mpfr_t x, double precision) {
 void invli(mpfr_t res, mpfr_t x, double prec) {
   mpfr_t y, logy, liy, lgx, tn, logtn, delta;
   mpfr_inits2(128, y, logy, liy, lgx, tn, logtn, delta, (mpfr_ptr) 0);
-  
   mpfr_log(lgx, x, MPFR_RNDN);
   mpfr_mul(y, x, lgx, MPFR_RNDN);
   li(liy, y, prec);
