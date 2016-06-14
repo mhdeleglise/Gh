@@ -1,6 +1,7 @@
 #include<gmpxx.h>
 #include<cmath>
 #include<vector>
+#include<mpfr.h>
 #include"numTheory.h"
 #include"utilities.h"
 #include"Gfunction.h"
@@ -19,7 +20,9 @@ void Gdelta::init(long pk,long m,int maxdinit,int imp) {
   this->pk=pk;
   this->m = m;
   mpz_init(this->Nk);
+  mpfr_init2(Glog,128);
   maxdinit=maxdinit-maxdinit%2;
+  mpfr_set_default_prec(128);
 
   if (!is_prime(pk)) {
     erreur("Gpkmh, pk n'est pas premier\n");
@@ -221,6 +224,31 @@ long double Gdelta::log() {
   mpz_class num = Gprov.get_num();
   mpz_class den = Gprov.get_den();
   return std::log((long double)num.get_d())-std::log((long double)den.get_d());
+}
+
+
+void Gdelta::compute_Glog() {
+  mpfr_set_default_prec(128);
+  mpz_class num = Gprov.get_num();
+  mpz_class den = Gprov.get_den();
+  mpfr_t num_mpfr;
+  mpfr_t den_mpfr;
+  mpfr_t num_mpfr_log;
+  mpfr_t den_mpfr_log;
+
+  mpfr_inits2(128, num_mpfr, den_mpfr, num_mpfr_log, den_mpfr_log, (mpfr_ptr) 0);
+  mpfr_set_z(num_mpfr, num.get_mpz_t(), MPFR_RNDN);
+  mpfr_set_z(den_mpfr, den.get_mpz_t(), MPFR_RNDN);
+  //mpfr_printf ("num_mpfr= %.33RZf\n", num_mpfr);
+  //mpfr_printf ("den_mpfr= %.33RZf\n", den_mpfr);
+
+  mpfr_log(num_mpfr_log, num_mpfr,  MPFR_RNDN);
+  mpfr_log(den_mpfr_log, den_mpfr,  MPFR_RNDN);
+  //mpfr_printf ("num_mpfr_log= %.33RZf\n", num_mpfr_log);
+  //mpfr_printf ("den_mpfr_log= %.33RZf\n", den_mpfr_log);
+
+  
+  mpfr_sub(Glog, num_mpfr_log, den_mpfr_log, MPFR_RNDN);
 }
 
 void sliceGdelta(long pk, long sk) {
