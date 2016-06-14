@@ -14,7 +14,7 @@ endif
 
 SOURCES= erreur.cc primes1000000.cc Gcomb.cc Gdelta.cc
 COMMANDS= testGcomb testGdelta adjust_sx_delta factorG invli2 sublong\
-	Gcompute left_prime
+	Gcompute Hcompute left_prime
 
 OBJ = erreur.o Gcomb.o Gdelta.o limpfr.o prev_prime.o Nk.o\
 	psi.o psi_theta_diff.o  theta.o GdeltaShows.o
@@ -41,6 +41,9 @@ testGdelta:	$(OBJ) testGdelta.cc
 
 Gcompute:	$(OBJ) Gcompute.cc
 	$(CXX) $(CFLAGS) -o  Gcompute  Gcompute.cc $(LPATH) $(OBJ) $(LIBS)  $(LIBDIR)
+
+Hcompute:	$(OBJ) Hcompute.cc
+	$(CXX) $(CFLAGS) -o  Hcompute  Hcompute.cc $(LPATH) $(OBJ) $(LIBS)  $(LIBDIR)
 
 factorG:	$(OBJ) factorG.cc
 	$(CXX) $(CFLAGS) -o  factorG  factorG.cc $(LPATH) $(OBJ) $(LIBS)  $(LIBDIR)
