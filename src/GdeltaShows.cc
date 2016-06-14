@@ -82,7 +82,7 @@ void Gdelta::show_factors() {
       gmp_printf("%.Zd / ",q);
     else {
       gmp_printf("%.Zd / ",q);
-      gmp_printf("%.Zd\n",denom.get_mpz_t());
+      gmp_printf("%.Zd",denom.get_mpz_t());
     }
   }
   printf("\n");

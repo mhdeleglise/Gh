@@ -2,11 +2,11 @@
 
 if (( $# == 2 ));
 then
-    pksk=$(skcompute $2 | tail -1)
-    echo $1 $pksk | xargs src/Gcompute
+    pkdeltak=$(skcompute $2 | tail -1)
+    echo $1 $pkdeltak | xargs src/Gcompute
 else
-    pksk=$(skcompute $1 | tail -1)
-    echo "-v" $pksk | xargs src/Gcompute
+    pkdeltak=$(skcompute $1 | tail -1)
+    echo "-v" $pkdeltak | xargs src/Gcompute
 fi	
 
 
