@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if (( $# == 2 ));
+then
+    pkdeltak=$(skcompute $2 | tail -1)
+    #echo  npkdeltak= $2 $pkdeltak
+    echo $1 $2 $pkdeltak | xargs src/Hcompute
+else
+    #pkdeltak=$(skcompute $1 | tail -1)
+    echo  npkdeltak= $1 $pkdeltak
+    echo "-v" $1 $pkdeltak | xargs src/Hcompute
+fi	
+
