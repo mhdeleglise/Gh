@@ -3,6 +3,7 @@
 #include<iostream>
 #include<vector>
 #include<gmpxx.h>
+#include<mpfr.h>
 #include<limits.h>
 #include"utilities.h"
 long next_prime(long);
@@ -70,9 +71,11 @@ class Gdelta{
  public:
   long ecart;
   mpz_t Nk;
+  mpfr_t Glog;
   long pk;
   mpq_class value() {return Gprov;}
   long double log();
+  void compute_Glog();
   Gdelta() {};
   Gdelta(long pk,long m,int maxdinit,int imp);
   void init(long pk,long m,int maxdinit,int imp);
