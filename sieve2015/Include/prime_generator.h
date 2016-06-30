@@ -11,7 +11,7 @@ public:
   prime_generator(long64 ws) : sieve_by_slice(2,1,ws,0,presieved_primes::presieve_base,AUTO_SIEVE) {}
 
   prime_generator(long64 ws, long64 starting_from): sieve_by_slice(2,1,ws,starting_from,presieved_primes::presieve_base,AUTO_SIEVE) {
-    init_primes(starting_from); // next_prime() will be the first prime bigger than starting_from
+    set_indexes(starting_from); // next_prime() will be the first prime bigger than starting_from
   }
 
   long64 next_prime() {return sieve_by_slice<bit_table, long64>::get_next_prime();}

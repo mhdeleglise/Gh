@@ -27,14 +27,15 @@ int main(int argc, char * argv[]) {
   long64 maxprime = min(sqrt((double)(2*x))+10000, 2000000000.0);
   long64 p=0;
   presieved_primes::init_prime_table(maxprime,2);
-  prime_generator pg(10000000, x);
+
 
   mpz_t sum, delta;
   mpz_init(sum);
   mpz_init(delta);
   long64  cnte=1;
-  long pj1=pg.next_prime(x);
   if (mpz_cmp_si(deltax, 0) >= 0) {
+    prime_generator pg(10000000,x);
+    long pj1=pg.next_prime();
     long pj=x;
     while (mpz_cmp_si(deltax, pj1) >= 0) {
       mpz_sub_ui(deltax, deltax, pj1);
@@ -49,7 +50,8 @@ int main(int argc, char * argv[]) {
     return 0;
     }
   else {
-    p= pg.prev_prime(x);
+    prime_generator pg(10000000, x+1);
+    p= pg.prev_prime();
     mpz_add_ui(deltax, deltax, p);
     while (mpz_cmp_si(deltax, 0) < 0) {
       p=pg.prev_prime();

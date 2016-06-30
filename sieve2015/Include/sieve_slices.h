@@ -56,7 +56,7 @@ template<class btable, class longint> class sieve_by_slice:
     longint get_previous_prime();
     longint get_next_prime(longint x);
     longint get_previous_prime(longint x);
-    void init_primes(longint x); // set index first prime at x position so that next_prime will be the first prime
+    void set_indexes(longint x); // set index first prime at x position so that next_prime will be the first prime
     // bigger than x
 };
 

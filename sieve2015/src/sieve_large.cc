@@ -4,7 +4,7 @@
 #include"sieve_large.h"
 
 sieve_large::sieve_large(long64 wsize, long128 startx): sieve_by_slice<bit_table,long128>(2,1,wsize,startx,6,NO_SIEVE) {
-  sieve_by_slice<bit_table, long128>::init_primes(startx);
+  sieve_by_slice<bit_table, long128>::set_indexes(startx);
 }
 
 

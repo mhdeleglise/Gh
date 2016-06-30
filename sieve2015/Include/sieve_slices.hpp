@@ -40,6 +40,7 @@ sieve_by_slice<btable, longint>::create(int k0, int l0, long64 slice_size,
 template<class btable, class longint> void 
 sieve_by_slice<btable, longint>::set_around(longint x)
 {
+  //cout << "In set_around x= " << x << " wstart= " << window_start << "    wend= " << window_end << "  window_size= " << window_size <<  endl;
   if ((x < window_start) || (x > window_end)) {
     long q = x / window_size;
     window_start = q * window_size;
@@ -121,6 +122,7 @@ sieve_by_slice<btable, longint>::shift_window_forward()
       last_total = count(window_start+window_size-1);
   }
   window_start += window_size;
+  window_end += window_size;
   btable::fill();
   btable::unset_bit(0);
   if (sieve_t == AUTO_SIEVE)
@@ -136,6 +138,7 @@ template<class btable, class longint> void
 sieve_by_slice<btable, longint>::shift_window_backward()
 {
   window_start -= window_size;
+  window_end   -= window_size;
   btable::fill();
   btable::unset_bit(0);
   if (sieve_t == AUTO_SIEVE)
@@ -260,8 +263,7 @@ sieve_by_slice<btable, longint>::get_next_prime()
 	  //cout << "left_index = " << left_index << "    image " << get_integer(left_index) << endl;
 	  if (btable::get_bit(left_index))
 	    return get_integer(left_index);
-	  //else
-	    //cout << "not prime " << endl;
+	  //else cout << "not prime " << endl;
 	}
       //cout << "sieve_by_slices::forward\n";
       shift_window_forward();
@@ -285,50 +287,62 @@ sieve_by_slice<btable, longint>::get_next_prime_without_shifting()
 template<class btable, class longint> longint  
 sieve_by_slice<btable, longint>::get_previous_prime()
 {
+  //cout << "In get_previous_prime\n";
+  //cout << " wstart= " << window_start << "    wend= " << window_end << "  window_size= " << window_size <<  endl;
   do
     {
       while (right_index--)
 	{
-	  if (btable::get_bit(right_index))
+	  if (btable::get_bit(right_index)) {
+	    //cout << " wstart= " << window_start << "    wend= " << window_end << "  window_size= " << window_size <<  endl;
 	    return get_integer(right_index);
+	  }
 	}
       if (window_start) 
 	{
+	  //cout << "backward\n";
 	  shift_window_backward();
 	}
     } while (right_index);
+  cout << "ZZZZZZZZZZ\n";
   return 0;
 }
+
+template<class btable, class longint> void sieve_by_slice<btable, longint>::set_indexes(longint x)
+{
+  set_around(x);
+
+  left_index = lower_index64(x - window_start);
+
+  right_index = (int)lower_index64(x - window_start);
+  if (get_integer(right_index) < x)
+    right_index++;
+}
+
 
 template<class btable, class longint> longint
 sieve_by_slice<btable, longint>::get_previous_prime(longint x)
 {
   set_around(x);
-  right_index = (int)lower_index64(x - window_start)+1;
+  //cout << "After set_around x= " << x << " wstart= " << window_start << "    wend= " << window_end << "  window_size= " << window_size <<  endl;
+  //display();
+  right_index = (int)lower_index64(x - window_start);
+  if (get_integer(right_index) < x)
+    right_index++;
+  //cout << "right_index= " << right_index << "  integer = " << get_integer(right_index) << endl;
   return get_previous_prime();
 }
 
 template<class btable, class longint> longint
 sieve_by_slice<btable, longint>::get_next_prime(longint x)
 {
-  set_around(x);
+  //set_around(x);
+  //display();
   left_index = (int)lower_index64(x - window_start);
+  //cout << "left_index= " << left_index << "  integer = " << get_integer(left_index) << endl;
   return get_next_prime();
 }
 
-template<class btable, class longint> void sieve_by_slice<btable, longint>::init_primes(longint x)
-{
-  set_around(x);
-  left_index = lower_index64(x - window_start);
-  //left_index = lower_index64(x - window_start)+1;
-  //cout << "init_primes x= " << x << endl;
-  //cout << "left_index set to " << left_index  << "   d'image " << get_integer(left_index) << endl;
-  //cout << "window_start= " << window_start << endl;
-  if (get_integer(left_index) == x) {
-    left_index -= 1;
-  }
-  //cout << "Init primes put left_index  to " << left_index << "  d'image " <<  get_integer(left_index) << endl;
-}
 
 template<class btable, class longint> longint
 sieve_by_slice<btable, longint>::count(longint x)

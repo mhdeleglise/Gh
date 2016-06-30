@@ -1,5 +1,9 @@
 INC= ../sieve2015/Include
 LIBDIR=-L ../sieve2015
+
+//INC= ~deleglis/Pix2015/Include
+//LIBDIR=-L ~deleglis/Pix2015
+
 LIBS =  -lgmpxx -lgmp -lmpfr -lsieve
 CFLAGS = -O2  -Wall
 
