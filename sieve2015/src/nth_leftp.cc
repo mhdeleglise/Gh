@@ -11,7 +11,7 @@ long128 nthleftp(long128 x, long64 n) {
   presieved_primes::init_prime_table(maxprime,2);
 
   sieve_by_slice<bit_table, long128> sieve_table(2,1,step,x-step,6,AUTO_SIEVE);
-  long128 p=sieve_table.get_previous_prime(x);
+  long128 p=sieve_table.get_previous_prime(x+1);
   //cout << "p= " << p << endl;
 
   while (p > x) {
